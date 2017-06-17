@@ -3,6 +3,7 @@ Library of WinForms controls
 
 ## State
 * Bluild on [AppVeyor](https://ci.appveyor.com/projects)
+
 Application           |    Platform       | Build                 |      Tests        | Coverage 
 ----------------------|-------------------|-----------------------------------------------------------------------------------|---------------|-------------|--------------
 LamedalCore_Templates |Windows 10.0 VS2017| ![alt tag](https://ci.appveyor.com/api/projects/status/keh56h0rdnv894d9?svg=true) |               |             |
