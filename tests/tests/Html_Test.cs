@@ -4,7 +4,6 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ImageMagick;
 using LamedalCore;
 using Svg;
 //using TheArtOfDev.HtmlRenderer.WinForms;
@@ -34,18 +33,5 @@ namespace Lamedal_UIWinForms.Test.tests
         //    m_Bitmap.Save(filename, ImageFormat.Png);
         //}
 
-        [Fact]
-        public static void Html_2PngTest2()
-        {
-
-            // Read first frame of gif image
-            using (var image = new MagickImage(@"c:\temp\badge_linecoverage.csv"))
-            {
-                // Save frame as jpg
-                image.Write(@"c:\temp\Snakeware.jpg");
-            }
-        }
-
-        
     }
 }

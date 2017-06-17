@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LamedalCore", "..\LamedalCore\src\LamedalCore.csproj", "{421FEB9F-B016-45BD-98BE-9B4889F39057}"
 EndProject
@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lamedal_UIWinForms", "src\Lamedal_UIWinForms.csproj", "{6EE128E4-96F6-40D4-85C0-235C30EC461C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lamedal_UIWinForms.Test", "tests\Lamedal_UIWinForms.Test.csproj", "{C5B02C31-0A43-4CBF-BA58-7C6CF0CE9A3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuctingGrids", "..\ThreeLevelGrids\WinForms\DuctingGrids.csproj", "{B4D5D9FB-6C23-4D53-ABFC-BA1DF97390FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lamedal_Badge", "..\Lamedal_Badge\src\Lamedal_Badge.csproj", "{D37E3923-B7D7-4622-9AF2-F03487BD1E84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{C5B02C31-0A43-4CBF-BA58-7C6CF0CE9A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5B02C31-0A43-4CBF-BA58-7C6CF0CE9A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5B02C31-0A43-4CBF-BA58-7C6CF0CE9A3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4D5D9FB-6C23-4D53-ABFC-BA1DF97390FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4D5D9FB-6C23-4D53-ABFC-BA1DF97390FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4D5D9FB-6C23-4D53-ABFC-BA1DF97390FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4D5D9FB-6C23-4D53-ABFC-BA1DF97390FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D37E3923-B7D7-4622-9AF2-F03487BD1E84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D37E3923-B7D7-4622-9AF2-F03487BD1E84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D37E3923-B7D7-4622-9AF2-F03487BD1E84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D37E3923-B7D7-4622-9AF2-F03487BD1E84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
