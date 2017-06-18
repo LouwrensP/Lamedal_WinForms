@@ -9,7 +9,7 @@ namespace Lamedal_UIWinForms.Events
     /// </summary>
     public sealed class evChartHitInfo_EventArgs
     {
-        private readonly LaMedalPort.UIWindows IamWindows = LaMedalPort.UIWindows.Instance; // Set reference to Blueprint Windows lib
+        private readonly Lamedal_WinForms _lamedWin = Lamedal_WinForms.Instance;  // Load the winforms lib
         
         public readonly Chart Chart;
         public HitTestResult hitResult = null;
@@ -28,8 +28,8 @@ namespace Lamedal_UIWinForms.Events
             this.Chart = chart;
             if (chart == null) return;
 
-            IamWindows.libUI.WinForms.Controls.Charts.Mouse.Mouse_HitpointInfo(chart, e, out MousePoint, out hitResult, out Value_X, out Value_Y);
-            IamWindows.libUI.WinForms.Controls.Charts.Mouse.Mouse_HitPointData(chart, hitResult, out Value_Label, out Value_, explode);
+            _lamedWin.libUI.WinForms.Controls.Charts.Mouse.Mouse_HitpointInfo(chart, e, out MousePoint, out hitResult, out Value_X, out Value_Y);
+            _lamedWin.libUI.WinForms.Controls.Charts.Mouse.Mouse_HitPointData(chart, hitResult, out Value_Label, out Value_, explode);
         }
 
         public bool HitPoint

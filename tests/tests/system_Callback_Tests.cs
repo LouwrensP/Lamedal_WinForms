@@ -7,7 +7,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Callback
 {
     public sealed class system_Callback_Tests
     {
-        private readonly LaMedalPort.UIWindows _uiWindows = LaMedalPort.UIWindows.Instance;   // Instance to UIWindows
+        private readonly Lamedal_WinForms _lamedWin = Lamedal_WinForms.Instance;  // Load the winforms lib
         readonly system_Callback_TestsForm form = new system_Callback_TestsForm();
 
 #if !TEST_OFF // =======================

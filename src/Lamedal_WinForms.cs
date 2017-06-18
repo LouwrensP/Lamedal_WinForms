@@ -34,5 +34,17 @@ namespace Lamedal_UIWinForms
         private libUI2_ _lib;
         #endregion
 
+        #region Exceptions
+        /// <summary>
+        /// Gets the Exceptions library methods. 
+        /// </summary>
+        public Lamedal_WinForms_Exceptions Exceptions
+        {
+            get { return _Exceptions ?? (_Exceptions = new Lamedal_WinForms_Exceptions()); }
+        }
+        private Lamedal_WinForms_Exceptions _Exceptions;
+        #endregion
+
+
     }
 }

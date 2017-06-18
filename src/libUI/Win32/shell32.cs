@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using Lamedal_UIWinForms.Enumerals;
 
 namespace Lamedal_UIWinForms.libUI.Win32
 {

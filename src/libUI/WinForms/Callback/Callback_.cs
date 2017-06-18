@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 using LamedalCore.zz;
+using Lamedal_UIWinForms.State;
 using Lamedal_UIWinForms.zzz;
 
 namespace Lamedal_UIWinForms.libUI.WinForms.Callback
@@ -14,7 +15,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Callback
     /// <code>CTI;</code>
     public sealed class Callback_
     {
-        private readonly LaMedalPort.UIWindows _uiWindows = LaMedalPort.UIWindows.Instance;   // Instance to UIWindows
+        private readonly Lamedal_WinForms _lamedWin = Lamedal_WinForms.Instance;  // Load the winforms lib        
         private readonly Dictionary<string,stateCallback> CallbackMethods = new Dictionary<string, stateCallback>();
 
         /// <summary>
@@ -31,7 +32,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Callback
             if (CallbackMethods.Count > 300)
             {
                 string stack = _uiWindows.Exceptions.Method_Stacktrace_AsStr(false, "Method");
-                _uiWindows.Exceptions.Show("Recursive method calls: " + stack);
+                throw new ArgumentException("Error! Recursive method calls: " + stack);
                 return;
             }
 
@@ -132,9 +133,10 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Callback
             }
             catch (Exception ex)
             {
+                // This is an exception on the MethodInvoker structure. We need to give more context 
                 var err = "Executing method '" + methodName + "()'".NL();
                 err += info.MethodStack;
-                _uiWindows.Exceptions.Show(ex, errMsg: err);
+                throw new Exception(err, ex);
             }
 
             timer.Dispose();
