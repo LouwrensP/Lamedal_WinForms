@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.Design;
 using Lamedal_UIWinForms.libUI.Interfaces;
+using Lamedal_UIWinForms.UControl._Designer;
 
 namespace Lamedal_UIWinForms.libUI.WinForms.UIDesigner
 {

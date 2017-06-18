@@ -94,6 +94,7 @@
     <Compile Include="libUI\WinForms\Controls\Controls_ListView.cs" />
     <Compile Include="libUI\WinForms\Controls\Controls_Other.cs" />
     <Compile Include="libUI\WinForms\Controls\Controls_TextBox.cs" />
+    <Compile Include="libUI\WinForms\IObjectModel.cs" />
     <Compile Include="libUI\WinForms\UIDesigner\UIDesigner_.cs" />
     <Compile Include="libUI\WinForms\UIDesigner\UIDesigner_Code.cs" />
     <Compile Include="libUI\WinForms\UIDesigner\UIDesigner_Component.cs" />
@@ -306,6 +307,7 @@
     <Compile Include="UControl\_Designer\GroupBox_Partial.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UControl\_Designer\IGroupBox_FileStructure_Interface.cs" />
     <Compile Include="UControl\_Designer\Label_.cs">
       <SubType>Component</SubType>
     </Compile>

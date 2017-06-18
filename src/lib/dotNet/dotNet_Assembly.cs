@@ -58,7 +58,7 @@ namespace Lamedal_UIWinForms.lib.dotNet
         public List<Assembly> Get_All(bool filterAssemblies = true, stateAssemblyFilters filters = null)
         {
             Assembly[] assemblyArray = AppDomain.CurrentDomain.GetAssemblies();
-            List<Assembly> assemblies = assemblyArray.Where(x => x.IsDynamic == false).zUnique().ToList();
+            List<Assembly> assemblies = assemblyArray.Where(x => x.IsDynamic == false).zUnique2().ToList();
             if (filterAssemblies == false) return assemblies;
 
             if (filters == null) filters = new stateAssemblyFilters();
@@ -85,7 +85,7 @@ namespace Lamedal_UIWinForms.lib.dotNet
         /// <returns>
         /// List<Assembly />
         /// </returns>
-        public List<Assembly> Get_All(out List<string> assemblyNames, bool filterAssemblies = true, stateAssemblyFilters filters = null)
+        public IList<Assembly> Get_All(out IList<string> assemblyNames, bool filterAssemblies = true, stateAssemblyFilters filters = null)
         {
             var result = Get_All(filterAssemblies, filters);
             assemblyNames = result.Select(x => x.FullName.zvar_Id(" ")).ToList();
@@ -208,7 +208,7 @@ namespace Lamedal_UIWinForms.lib.dotNet
         /// </summary>
         /// <param name="assemblies">The assemblies list</param>
         /// <returns>List<Type/></returns>
-        public List<Type> Types_Enumerals(List<Assembly> assemblies)
+        public IList<Type> Types_Enumerals(IList<Assembly> assemblies)
         {
             var myTypes = new List<Type>();
             foreach (Assembly x in assemblies)
@@ -223,7 +223,7 @@ namespace Lamedal_UIWinForms.lib.dotNet
                     throw;
                 }
             }
-            var myTypes2 = myTypes.Where(x => x.IsEnum).ToList().zUnique();
+            IList<Type> myTypes2 = myTypes.Where(x => x.IsEnum).ToList().zUnique();
             return myTypes2;
         }
 
@@ -235,10 +235,10 @@ namespace Lamedal_UIWinForms.lib.dotNet
         /// <returns>
         /// List<Type />
         /// </returns>
-        public List<Type> Types_Enumerals(List<Assembly> assemblies, out List<string> typeNames)
+        public IList<Type> Types_Enumerals(List<Assembly> assemblies, out IList<string> typeNames)
         {
-            var result = Types_Enumerals(assemblies);
-            typeNames = result.Select(x => x.Name).ToList().zUnique(true);
+            IList<Type> result = Types_Enumerals(assemblies);
+            typeNames = result.Select(x => x.Name).ToList().zUnique();
             return result;
         }
 

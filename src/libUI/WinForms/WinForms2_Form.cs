@@ -62,8 +62,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
                     Application.Run(frm);
                 } catch (Exception ex)
                 {
-                    ex.zException_Show("Error in main form", action: enExceptionAction.ShowMessage);
-                    if ("Exit application?".zDialog().MessageBox_YesNo() == false)
+                    if ("Error in main form. Exit application?".zDialog().MessageBox_YesNo() == false)
                     {
                         Mainform_Open(frmType, newIcon, appName, runThisFormAsTheMainForm);
                     }

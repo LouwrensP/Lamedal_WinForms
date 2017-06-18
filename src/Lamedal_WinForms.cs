@@ -1,6 +1,7 @@
 ﻿using LamedalCore.lib;
 using Lamedal_UIWinForms.lib;
 using Lamedal_UIWinForms.libUI;
+using Lamedal_UIWinForms.libUI.WinForms.UIDesigner;
 
 namespace Lamedal_UIWinForms
 {
@@ -58,5 +59,15 @@ namespace Lamedal_UIWinForms
         #endregion
 
 
+        #region UIDesigner
+        /// <summary>
+        /// Gets the UIDesigner library methods.
+        /// </summary>
+        public UIDesigner_ UIDesigner
+        {
+            get { return _UIDesigner ?? (_UIDesigner = new UIDesigner_()); }
+        }
+        private UIDesigner_ _UIDesigner;
+        #endregion
     }
 }

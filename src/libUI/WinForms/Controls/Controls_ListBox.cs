@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Controls
 {
     public sealed class Controls_ListBox
     {
+        private readonly LamedalCore_ _lamed = LamedalCore_.Instance; // system library
 
         /// <summary>
         /// Search for item in ListBox and return the index of the item.
@@ -144,9 +146,9 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Controls
         /// <param name="listBox">The combo box</param>
         /// <param name="strList">The string list.</param>
         /// <param name="selectedIndex">The selected index setting. Default value = -1.</param>
-        public void Items_FromList(ListBox listBox, List<string> strList, int selectedIndex = -1)
+        public void Items_FromList(ListBox listBox, IList<string> strList, int selectedIndex = -1)
         {
-            strList.zTo_IList(listBox.Items);
+            _lamed.Types.List.Action.Copy_To((IList)strList, listBox.Items);
             if (selectedIndex != -1) listBox.SelectedIndex = selectedIndex;
         }
     }

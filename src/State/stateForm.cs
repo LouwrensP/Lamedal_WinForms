@@ -2,6 +2,7 @@
 using LamedalCore.domain.Attributes;
 using LamedalCore.domain.Enumerals;
 using Lamedal_UIWinForms.Events;
+using Lamedal_UIWinForms.libUI.WinForms;
 
 namespace Lamedal_UIWinForms.State
 {
