@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using LamedalCore;
 using LamedalCore.domain.Attributes;
 using LamedalCore.domain.Enumerals;
+using Lamedal_UIWinForms.Enumerals;
 using Lamedal_UIWinForms.UControl.Forms.Dialog;
 
 namespace Lamedal_UIWinForms.libUI.WinForms
@@ -171,10 +172,10 @@ namespace Lamedal_UIWinForms.libUI.WinForms
         {
             // Show a file dialog form when the button is pressed!
             var button = sender as Button;
-            if (_lamed.Types.Is.ObjectIsNull(button, "Error: Sender must be a button")) return;
+            if (_lamed.Types.Object.IsNull(button,true, "Error: Sender must be a button")) return;
 
             var state = button.Tag as stateDialog;
-            if (_lamed.Types.Is.ObjectIsNull(state, "Error: Button tag not defined")) return;
+            if (_lamed.Types.Object.IsNull(state, true, "Error: Button tag not defined")) return;
 
             string selectedFile;
             File_Dialog_Button_Click(button, out selectedFile, state.FilterType, state.DialogType);

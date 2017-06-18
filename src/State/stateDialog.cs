@@ -1,5 +1,6 @@
 ﻿using LamedalCore.domain.Attributes;
 using LamedalCore.domain.Enumerals;
+using Lamedal_UIWinForms.Enumerals;
 
 namespace Lamedal_UIWinForms.State
 {
