@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using LamedalCore.zz;
 using Lamedal_UIWinForms.Events;
 
 namespace Lamedal_UIWinForms.UControl.Forms.Dialog

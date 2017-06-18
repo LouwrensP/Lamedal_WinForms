@@ -65,7 +65,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms.WinDB.WinGridView
             foreach (DataGridViewColumn col in grid.Columns)
             {
                 if (colNames.Length == 0) col.Visible = isVisible;
-                else if (col.Name.zFind().In(true, colNames)) col.Visible = isVisible;
+                else if (col.Name.zIn(colNames)) col.Visible = isVisible;
             }
         }
 

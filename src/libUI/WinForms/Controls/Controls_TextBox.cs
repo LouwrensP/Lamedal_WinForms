@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using LamedalCore;
 using LamedalCore.zz;
 
 namespace Lamedal_UIWinForms.libUI.WinForms.Controls
 {
     public sealed class Controls_TextBox
     {
+        private readonly LamedalCore_ _lamed = LamedalCore_.Instance; // system library
+
         /// <summary>
         /// Creates the TextBox text values from the list.
         /// </summary>
@@ -14,7 +17,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Controls
         /// <param name="fromList">The from list</param>
         public void FromList(TextBox textBox, IList fromList)
         {
-            string listStr = fromList.zTo_Str("".NL());
+            string listStr = _lamed.Types.String.List.ToString(fromList,"".NL());
             textBox.Text = listStr;
         }
 
@@ -25,7 +28,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Controls
         /// <param name="toList">The to list</param>
         public void ToList(TextBox textBox, IList toList)
         {
-            textBox.Lines.zTo_IList(toList);
+            _lamed.Types.List.Action.Copy_To(textBox.Lines, toList);
         }
 
         /// <summary>

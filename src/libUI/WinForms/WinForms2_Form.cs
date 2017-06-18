@@ -238,7 +238,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
                 (formCaption + " not running.").zOk();
                 if (loadAppName.zIsNullOrEmpty() == false)
                 {
-                    string path = Lamedal_WinForms.lib.system.Registry.Application_PathGet(loadAppName);
+                    string path = Lamedal_WinForms.Instance.lib.system.Registry.Application_PathGet(loadAppName);
                     if (path != null)
                     {
                         _lamedWin.libUI.WinForms.Console.Execute(path);
