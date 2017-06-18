@@ -31,7 +31,7 @@ namespace Lamedal_UIWinForms.UControl.panel
     public class Input_Panel_ActionList : DesignerActionList
     {
         #region Init
-        private readonly UIWindows IamWindows = UIWindows.Instance; // Set reference to Blueprint Windows lib
+        private readonly Lamedal_WinForms IamWindows = Lamedal_WinForms.Instance; // Set reference to Blueprint Windows lib
         private readonly Panel_ _panel;
         private readonly DesignerActionUIService _designerActionUISvc;
         private readonly IComponent _Component;

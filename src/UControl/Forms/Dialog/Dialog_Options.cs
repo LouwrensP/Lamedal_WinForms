@@ -36,7 +36,7 @@ namespace Lamedal_UIWinForms.UControl.Forms.Dialog
             var frmDialog = new Dialog_Options();
             frmDialog.TopMost = true;
             items.zTo_IList(frmDialog.listBox_Items.Items);
-            UIWindows.Instance.libUI.WinForms.Controls.ListBox.Width(frmDialog.listBox_Items, frmDialog);
+            Lamedal_WinForms.Instance.libUI.WinForms.Controls.ListBox.Width(frmDialog.listBox_Items, frmDialog);
 
             frmDialog.listBox_Items.SelectedIndex = 0;
             int height = frmDialog._Height;

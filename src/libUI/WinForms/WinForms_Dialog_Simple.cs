@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using LamedalCore;
 using LamedalCore.domain.Attributes;
 using LamedalCore.domain.Enumerals;
 using Lamedal_UIWinForms.UControl.Forms.Dialog;
@@ -12,8 +13,8 @@ namespace Lamedal_UIWinForms.libUI.WinForms
     [BlueprintRule_Class(enBlueprint_ClassNetworkType.Node_Action)]
     public class WinForms_Dialog_Simple
     {
-        private readonly LaMedalPortable _lamed = LaMedalPortable.Instance; // system library
-        private readonly LaMedalPort.UIWindows _uiWindows = LaMedalPort.UIWindows.Instance;   // Instance to UIWindows
+        private readonly LamedalCore_ _lamed = LamedalCore_.Instance; // system library
+        private readonly Lamedal_WinForms _uiWindows = Lamedal_WinForms.Instance;   // Instance to UIWindows
 
         /// <summary>
         /// Creates a auto disappearing waits  cursor.

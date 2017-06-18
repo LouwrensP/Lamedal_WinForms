@@ -85,13 +85,13 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             {
                 //Assembly gets the all from remove system assemblies indicator. Default value = true..
                 List<string> assemblyNames;
-                List<Assembly> assemblies = UIWindows.Instance.lib.dotNet.Assembly.Get_All(out assemblyNames, true, _AssemblyFilters);
+                List<Assembly> assemblies = Lamedal_WinForms.Instance.lib.dotNet.Assembly.Get_All(out assemblyNames, true, _AssemblyFilters);
                 listBox_DLL.zListBox_Items_FromList(assemblyNames);
 
                 // Show the enumerals
                 // ==================
                 List<string> typeNames;
-                _myEnums = UIWindows.Instance.lib.dotNet.Assembly.Types_Enumerals(assemblies, out typeNames);  //Return enumeral types from the assemblies list.
+                _myEnums = Lamedal_WinForms.Instance.lib.dotNet.Assembly.Types_Enumerals(assemblies, out typeNames);  //Return enumeral types from the assemblies list.
                 listBox_Enums.zListBox_Items_FromList(typeNames);
             }
             catch (Exception exception)

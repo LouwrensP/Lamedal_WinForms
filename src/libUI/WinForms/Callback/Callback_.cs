@@ -27,7 +27,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Callback
         /// <param name="resetTimer">Reset timer indicator. Default value = false.</param>
         public void Execute(MethodInvoker method, int interval = 300, string uniqueName = "", bool resetTimer = false)
         {
-            // UIWindows.Instance.Method(() => myMethod(5), 500);
+            // Lamedal_WinForms.Instance.Method(() => myMethod(5), 500);
 
             if (CallbackMethods.Count > 300)
             {

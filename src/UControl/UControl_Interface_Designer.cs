@@ -35,7 +35,7 @@ namespace Lamedal_UIWinForms.UControl
     {
         #region Init
 
-        private readonly UIWindows IamWindows = UIWindows.Instance; // Set reference to Blueprint Windows lib
+        private readonly Lamedal_WinForms IamWindows = Lamedal_WinForms.Instance; // Set reference to Blueprint Windows lib
         private readonly IUControl _userControlBase;
         private readonly IUControl_Docking _userControlDock;
         private readonly CheckBox_ _userCustomCheckBox;

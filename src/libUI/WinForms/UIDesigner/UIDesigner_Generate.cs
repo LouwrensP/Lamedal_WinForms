@@ -239,7 +239,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms.UIDesigner
             //panel1.Left = mainPanel.Width - 10;
             panel1.BringToFront();
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            LaMedalPort.UIWindows.Instance.libUI.WinForms.Controls.Control.MoveToContainer(panel1, mainPanel);
+            Lamedal_WinForms.Instance.libUI.WinForms.Controls.Control.MoveToContainer(panel1, mainPanel);
             panel1.Dock = dock;
             return panel1;
         }

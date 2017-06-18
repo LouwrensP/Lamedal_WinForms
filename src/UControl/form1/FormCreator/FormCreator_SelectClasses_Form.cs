@@ -8,7 +8,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
     public sealed partial class FormCreator_SelectClasses_Form : System.Windows.Forms.Form
     {
         private readonly Component _parent;
-        private readonly UIWindows IamWindows = UIWindows.Instance; // Set reference to Blueprint Windows lib
+        private readonly Lamedal_WinForms IamWindows = Lamedal_WinForms.Instance; // Set reference to Blueprint Windows lib
         private string _className;
 
         public FormCreator_SelectClasses_Form(Component parent)
@@ -32,7 +32,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
         public void Setup(Component component)
         {
             // Populate the list of classes that can be generated
-            Assembly assembly = UIWindows.Instance.lib.dotNet.Assembly.Get_(component);
+            Assembly assembly = Lamedal_WinForms.Instance.lib.dotNet.Assembly.Get_(component);
 
             List<string> typeNameList;
             if (IamWindows.libUI.WinForms.FormGenerate.AssemblyTypes(assembly, out typeNameList, out _typeAttributeDictionary))

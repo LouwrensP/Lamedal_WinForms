@@ -9,7 +9,7 @@ namespace Lamedal_UIWinForms.UControl.Forms.Dialog
     /// </summary>
     public sealed partial class Progress_WaitCursor_Form : Form
     {
-        private readonly UIWindows _uiWindows = UIWindows.Instance;   // Instance to UIWindows
+        private readonly UIWindows _uiWindows = Lamedal_WinForms.Instance;   // Instance to UIWindows
 
         private DateTime _StartupTime;
         private int _TimeoutSeconds = 7;   // User should not wait longer than 7 seconds 

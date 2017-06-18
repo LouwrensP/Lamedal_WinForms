@@ -32,7 +32,7 @@ namespace Lamedal_UIWinForms.UControl.Input
     {
         #region Init
 
-        private readonly UIWindows IamWindows = UIWindows.Instance; // Set reference to Blueprint Windows lib
+        private readonly Lamedal_WinForms IamWindows = Lamedal_WinForms.Instance; // Set reference to Blueprint Windows lib
         private readonly Input_Control _inputControl;
         private readonly DesignerActionUIService _designerActionUISvc;
 

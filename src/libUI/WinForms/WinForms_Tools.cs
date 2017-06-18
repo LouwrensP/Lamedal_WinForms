@@ -180,7 +180,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             // Test Threading
             if (Thread.CurrentThread.GetApartmentState() != ApartmentState.STA)
             {
-                if (errMsg) LaMedalPort.UIWindows.Instance.Exceptions.Show("The current threads apartment state is not STA");
+                if (errMsg) Lamedal_WinForms.Instance.Exceptions.Show("The current threads apartment state is not STA");
                 return false;
             }
             return true;

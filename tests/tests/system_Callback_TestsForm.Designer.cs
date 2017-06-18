@@ -1,4 +1,4 @@
-﻿namespace Lamedal_UIWinForms.libUI.WinForms.Callback
+﻿namespace Lamedal_UIWinForms.Test.tests
 {
     sealed partial class system_Callback_TestsForm
     {

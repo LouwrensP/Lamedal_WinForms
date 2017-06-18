@@ -3,7 +3,7 @@ using System.Diagnostics.Contracts;
 using System.Windows.Forms;
 using Lamedal_UIWinForms.zzz;
 
-namespace Lamedal_UIWinForms.libUI.WinForms.Callback
+namespace Lamedal_UIWinForms.Test.tests
 {
     public sealed partial class system_Callback_TestsForm : Form
     {

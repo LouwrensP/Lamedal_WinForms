@@ -20,7 +20,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
     {
         #region Init
 
-        private readonly UIWindows IamWindows = UIWindows.Instance; // Set reference to Blueprint Windows lib
+        private readonly Lamedal_WinForms _lamedalWin = Lamedal_WinForms.Instance; // Set reference to Blueprint Windows lib
 
         private IDesignerHost _host;
         private bool _FormCreator_StartupFlag = true;
@@ -195,7 +195,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
                 UIDesigner_Code.Method_AddParameter(method1, Generator_Class, "model");
 
                 UIDesigner_Code.Method_AddCode(method1, "// Todo: Create the following fields in the form ");
-                UIDesigner_Code.Method_AddCode(method1, "// private readonly UIWindows IamWindows = UIWindows.Instance; // Set reference to Blueprint Windows lib");
+                UIDesigner_Code.Method_AddCode(method1, "// private readonly UIWindows _lamedalWin = Lamedal_WinForms.Instance; // Set reference to Blueprint Windows lib");
                 UIDesigner_Code.Method_AddCode(method1, "// private " + Generator_Class + " _model;");
                 UIDesigner_Code.Method_AddCode(method1, "_model = model;");
                 codeBackend.Members.Add(method1);
@@ -205,7 +205,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             if (UIDesigner_Code.Method_Find(codeBackend, out method2, "Model_RefreshForm", true, MemberAttributes.Public) == false)
             {
                 UIDesigner_Code.Method_AddCode(method2, "// Update the form from the object.");
-                UIDesigner_Code.Method_AddCode(method2, "IamWindows.libUI.WinForms.FormGenerate.Form_FromObject(this, _model);");
+                UIDesigner_Code.Method_AddCode(method2, "_lamedalWin.libUI.WinForms.FormGenerate.Form_FromObject(this, _model);");
                 codeBackend.Members.Add(method2);
             }
             // private void Model_OnFormValueChangeEvent(object sender, evInput_Control_EventArgs e)
@@ -220,7 +220,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             // ReAdd the code as expression
             UIDesigner_Code.Method_AddCode(method3, "// When the value on the form is updted -> sync changes to the object.", true);
             UIDesigner_Code.Method_AddCode(method3, "// Wait 1 second then sync from the object back to the form. (This ensure that the object is the master of the data", true);
-            UIDesigner_Code.Method_AddCode(method3, "IamWindows.libUI.WinForms.FormGenerate.Form_ToObject(e, _model)", true);
+            UIDesigner_Code.Method_AddCode(method3, "_lamedalWin.libUI.WinForms.FormGenerate.Form_ToObject(e, _model)", true);
             UIDesigner_Code.Method_AddCode(method3, "1000.zExecute_Async(Model_RefreshForm, \"formRefresh\", true)", true);
 
             #endregion
@@ -235,7 +235,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             if (ClassTypeDef(this, out typeAttribute))
             {
                 //UIDesigner_Generate.Form_PanelSetup(this, Panel_Setup, Panel_Main, out _panel1, out _panel2, out _panel3, showMsg);   // Reset the panels
-                IamWindows.libUI.WinForms.FormGenerate.Generate_Controls(_host, typeAttribute.Item1, (propertyTable_Attribute) typeAttribute.Item2, Panel_1, Panel_2, Panel_3, null);  // Generate the controls
+                _lamedalWin.libUI.WinForms.FormGenerate.Generate_Controls(_host, typeAttribute.Item1, (propertyTable_Attribute) typeAttribute.Item2, Panel_1, Panel_2, Panel_3, null);  // Generate the controls
             }
             else "Error! No fields were marked with the propertyField_Attribute".zOk();
 
@@ -247,9 +247,9 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
         private bool ClassTypeDef(object sender, out Tuple<Type, Attribute> classTypeAttribute)
         {
             classTypeAttribute = null;
-            Assembly assembly = UIWindows.Instance.lib.dotNet.Assembly.Get_(sender);
+            Assembly assembly = Lamedal_WinForms.Instance.lib.dotNet.Assembly.Get_(sender);
             Dictionary<string, Tuple<Type, Attribute>> typeAttributeDictionary;
-            if (IamWindows.libUI.WinForms.FormGenerate.AssemblyTypes(assembly, out typeAttributeDictionary) == false)
+            if (_lamedalWin.libUI.WinForms.FormGenerate.AssemblyTypes(assembly, out typeAttributeDictionary) == false)
             {
                 "Error! Type '{0}' not found.".zFormat(Generator_Class).zOk();
                 return false;

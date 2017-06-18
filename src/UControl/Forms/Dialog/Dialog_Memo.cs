@@ -9,7 +9,7 @@ namespace Lamedal_UIWinForms.UControl.Forms.Dialog
     /// </summary>
     public partial class Dialog_Memo : Form
     {
-        private readonly UIWindows IamWindows = UIWindows.Instance; // Set reference to Blueprint Windows lib
+        private readonly Lamedal_WinForms IamWindows = Lamedal_WinForms.Instance; // Set reference to Blueprint Windows lib
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Dialog_Memo" /> class.

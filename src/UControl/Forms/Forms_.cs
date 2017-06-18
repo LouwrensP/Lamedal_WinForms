@@ -6,7 +6,7 @@ namespace Lamedal_UIWinForms.UControl.Forms
 {
     public sealed class Forms_
     {
-        private readonly UIWindows IamWindows = UIWindows.Instance;  // Set reference to Blueprint Windows lib
+        private readonly Lamedal_WinForms IamWindows = Lamedal_WinForms.Instance;  // Set reference to Blueprint Windows lib
 
         /// <summary>
         /// Setup the SubForm.
@@ -23,7 +23,7 @@ namespace Lamedal_UIWinForms.UControl.Forms
             if (tabPage == null) frmI.Show();
             else
             {
-                UIWindows.Instance.libUI.WinForms.Controls.Control.MoveToContainer(frmI._groupMain, tabPage, true);  // Move subform controls to tab 
+                Lamedal_WinForms.Instance.libUI.WinForms.Controls.Control.MoveToContainer(frmI._groupMain, tabPage, true);  // Move subform controls to tab 
                 frmI._groupSetup.Visible = false;
                 frmI._splitter.Left--; // Refresh the form
                 frmI._splitter.Left++;

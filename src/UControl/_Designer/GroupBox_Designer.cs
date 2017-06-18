@@ -33,7 +33,7 @@ namespace Lamedal_UIWinForms.UControl._Designer
     public class GroupBox_Designer_ActionList : DesignerActionList
     {
         #region Init
-        private readonly UIWindows IamWindows = UIWindows.Instance; // Set reference to Blueprint Windows lib
+        private readonly Lamedal_WinForms IamWindows = Lamedal_WinForms.Instance; // Set reference to Blueprint Windows lib
         private readonly GroupBox_ _groupBox;
         private readonly DesignerActionUIService _designerActionUISvc;
         private readonly IComponent _Component;

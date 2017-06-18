@@ -16,7 +16,7 @@ namespace Lamedal_UIWinForms.UControl._Designer
     [ToolboxBitmap(typeof(CheckBox))]
     public sealed class CheckBox_ : CheckBox, IUControl, IUControl_Docking
     {
-        private readonly UIWindows IamWindows = UIWindows.Instance; // Set reference to Blueprint Windows lib
+        private readonly Lamedal_WinForms IamWindows = Lamedal_WinForms.Instance; // Set reference to Blueprint Windows lib
         private string _topMostText;
         private bool _topMost;
 

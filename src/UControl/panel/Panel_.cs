@@ -13,7 +13,7 @@ namespace Lamedal_UIWinForms.UControl.panel
     [Docking(DockingBehavior.Ask)]
     public class Panel_ : Panel, IUControl_Autosize, IUControl_Docking
     {
-        private readonly UIWindows IamWindows = UIWindows.Instance; // Set reference to Blueprint Windows lib
+        private readonly Lamedal_WinForms IamWindows = Lamedal_WinForms.Instance; // Set reference to Blueprint Windows lib
 
         #region Docking
 

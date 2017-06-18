@@ -21,7 +21,7 @@ namespace Lamedal_UIWinForms.UControl.Input
     public sealed partial class Input_Control : UserControl_, IUControl_Docking, IUControl_ObjectModel
     {
         #region Init
-        private readonly UIWindows IamWindows = UIWindows.Instance;
+        private readonly Lamedal_WinForms IamWindows = Lamedal_WinForms.Instance;
             // Set reference to Blueprint Windows lib
 
         private readonly Input_Control_Controller _controller;

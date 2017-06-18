@@ -13,7 +13,7 @@ namespace Lamedal_UIWinForms.UControl._Designer
     {
         #region Init
 
-        private readonly UIWindows IamWindows = UIWindows.Instance; // Set reference to Blueprint Windows lib
+        private readonly Lamedal_WinForms IamWindows = Lamedal_WinForms.Instance; // Set reference to Blueprint Windows lib
         private DateTime FiveSecondsAfterStartup;
         /// <summary>
         /// Initializes a new instance of the <see cref="UserControl_"/> class.
@@ -111,7 +111,7 @@ namespace Lamedal_UIWinForms.UControl._Designer
         {
             if (control == null) control = this;
             Form myForm = control.FindForm();
-            return UIWindows.Instance.libUI.WinForms.Tools.Form_IsMainForm(myForm);
+            return Lamedal_WinForms.Instance.libUI.WinForms.Tools.Form_IsMainForm(myForm);
         }
 
         /// <summary>

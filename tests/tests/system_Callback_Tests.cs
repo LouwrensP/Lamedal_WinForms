@@ -1,9 +1,11 @@
 ﻿using System;
+using Lamedal_UIWinForms.libUI.WinForms.Callback;
+using Xunit;
 
 #if !TEST_OFF // =======================
 #endif
 
-namespace Lamedal_UIWinForms.libUI.WinForms.Callback
+namespace Lamedal_UIWinForms.Test.tests
 {
     public sealed class system_Callback_Tests
     {
@@ -26,7 +28,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Callback
         public void A_TestIfThreadIsSTA()
         {
             // Is threading to STA
-            Assert.True(_uiWindows.libUI.WinForms.Tools.ThreadIsSTA(false));
+            Assert.True(_lamedWin.libUI.WinForms.Tools.ThreadIsSTA(false));
         }
 #endif
 

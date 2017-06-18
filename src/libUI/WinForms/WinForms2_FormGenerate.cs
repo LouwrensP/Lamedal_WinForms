@@ -21,8 +21,8 @@ namespace Lamedal_UIWinForms.libUI.WinForms
     /// <code CTI_Timestamp="2015/07/20" CTI_DefaultGroup="Setup" Group="FormGenerate" CTI_Status="Unchecked;" DefaultType="Form">CTI;</code>
     public sealed class WinForms2_FormGenerate
     {
-        private readonly dotNet_ _dotNet = LaMedalPort.UIWindows.Instance.lib.dotNet;
-        private readonly LaMedalPort.UIWindows IamWindows = LaMedalPort.UIWindows.Instance;
+        private readonly dotNet_ _dotNet = Lamedal_WinForms.Instance.lib.dotNet;
+        private readonly Lamedal_WinForms IamWindows = Lamedal_WinForms.Instance;
 
          // Set reference to Blueprint Windows lib
         /// <summary>
@@ -137,8 +137,8 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             Type fieldType = fieldInfo.FieldType;
 
             object value;
-            if (fieldValue.zIsNullOrEmpty()) value = LaMedalPort.UIWindows.Instance.Types.Generic.DefaultValue(fieldType);
-            else value = LaMedalPort.UIWindows.Instance.Types.Generic.Convert(fieldValue, fieldType);
+            if (fieldValue.zIsNullOrEmpty()) value = Lamedal_WinForms.Instance.Types.Generic.DefaultValue(fieldType);
+            else value = Lamedal_WinForms.Instance.Types.Generic.Convert(fieldValue, fieldType);
             fieldInfo.SetValue(Object, value);
         }
 
@@ -285,7 +285,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             state.DoEventsFlag = false;
 
             IDesignerHost host = UIDesigner_Service.IDesignerHost_FromForm(form);
-            int height = LaMedalPort.UIWindows.Instance.libUI.WinForms.FormGenerate.Generate_Controls(host, type, attribute, panel1, panel2, panel3, OnValueChangeEvent);
+            int height = Lamedal_WinForms.Instance.libUI.WinForms.FormGenerate.Generate_Controls(host, type, attribute, panel1, panel2, panel3, OnValueChangeEvent);
             form.Height = height;
             if (attribute != null)
             {
@@ -361,7 +361,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             control.Field_Name = fieldName;   // Map the field;
 
             // Update the field value on the form
-            LaMedalPort.UIWindows.Instance.libUI.WinForms.FormGenerate.Form_FromObject(form, model, fieldName);  // Sync form
+            Lamedal_WinForms.Instance.libUI.WinForms.FormGenerate.Form_FromObject(form, model, fieldName);  // Sync form
 
         }
 
@@ -374,18 +374,18 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             var type = Object.GetType();
 
             // Set the fields
-            FieldInfo[] fields = LaMedalPort.UIWindows.Instance.Types.Generic.Class_Fields(type);
+            FieldInfo[] fields = Lamedal_WinForms.Instance.Types.Generic.Class_Fields(type);
             foreach (FieldInfo field in fields)
             {
-                object value = LaMedalPort.UIWindows.Instance.Types.Generic.DefaultValue(type);
+                object value = Lamedal_WinForms.Instance.Types.Generic.DefaultValue(type);
                 field.SetValue(Object, value);
             }
 
             // Set the properties
-            PropertyInfo[] properties = LaMedalPort.UIWindows.Instance.Types.Generic.Class_Properties(type);
+            PropertyInfo[] properties = Lamedal_WinForms.Instance.Types.Generic.Class_Properties(type);
             foreach (PropertyInfo property in properties)
             {
-                object value = LaMedalPort.UIWindows.Instance.Types.Generic.DefaultValue(type);
+                object value = Lamedal_WinForms.Instance.Types.Generic.DefaultValue(type);
                 var setter = property.GetSetMethod();
                 if (setter != null) property.SetValue(Object, value, null);
             }
@@ -401,7 +401,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             IObjectModel classObject = state.FormObjectModel;
             if (state.onValueChange != null) state.onValueChange(sender, e);  // Notify the client that the value has changed
 
-            LaMedalPort.UIWindows.Instance.libUI.WinForms.FormGenerate.Form_ToObject(e, classObject);  // Update the object in memory
+            Lamedal_WinForms.Instance.libUI.WinForms.FormGenerate.Form_ToObject(e, classObject);  // Update the object in memory
             500.zExecute_Async(() => SyncFormAndObject(frm), "formRefresh", true);  // Sync the object back to the form in 1 sec
         }
 
@@ -413,7 +413,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             IObjectModel classObject = state.FormObjectModel;
             try
             {
-                LaMedalPort.UIWindows.Instance.libUI.WinForms.FormGenerate.Form_FromObject(form, classObject);
+                Lamedal_WinForms.Instance.libUI.WinForms.FormGenerate.Form_FromObject(form, classObject);
             }
             finally { state.DoEventsFlag = true; }  // Activate the events again
         }

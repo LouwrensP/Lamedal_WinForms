@@ -19,8 +19,8 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
 {
     public partial class FormCreator_Form : System.Windows.Forms.Form
     {
-        private readonly UIWindows IamWindows = UIWindows.Instance; // Set reference to Blueprint Windows lib
-        private readonly dotNet_ _dotNet = UIWindows.Instance.lib.dotNet;
+        private readonly Lamedal_WinForms IamWindows = Lamedal_WinForms.Instance; // Set reference to Blueprint Windows lib
+        private readonly dotNet_ _dotNet = Lamedal_WinForms.Instance.lib.dotNet;
 
         private FormCreator_ _designer;       // Form designer
         private IDesignerHost _host;            // Form designer 
@@ -330,7 +330,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             field1.Attributes = MemberAttributes.Private;
             codeTypeDeclaration.Members.Add(field1);
 
-            //// private readonly UIWindows IamWindows = UIWindows.Instance; // Set reference to Blueprint Windows lib
+            //// private readonly Lamedal_WinForms IamWindows = Lamedal_WinForms.Instance; // Set reference to Blueprint Windows lib
             //var field2 = new CodeMemberField("LaMedalUI_Windows_", "IamWindows");
             //field2.InitExpression = new CodeSnippetExpression("LaMedalUI_Windows_.Instance; // Set reference to Blueprint Windows lib");
             //field2.Attributes = MemberAttributes.Private;
