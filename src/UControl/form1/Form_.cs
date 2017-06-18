@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using LamedalCore.zz;
 using Lamedal_UIWinForms.Enumerals;
 using Lamedal_UIWinForms.libUI.WinForms.UIDesigner;
+using Lamedal_UIWinForms.zzz;
 
 namespace Lamedal_UIWinForms.UControl.form1
 {

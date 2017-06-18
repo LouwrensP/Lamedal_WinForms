@@ -7,6 +7,7 @@ using LamedalCore.zz;
 using Lamedal_UIWinForms.Enumerals;
 using Lamedal_UIWinForms.Events;
 using Lamedal_UIWinForms.libUI.Interfaces;
+using Lamedal_UIWinForms.zzz;
 
 namespace Lamedal_UIWinForms.UControl.Input
 {
@@ -91,7 +92,7 @@ namespace Lamedal_UIWinForms.UControl.Input
             }
             catch (Exception e)
             {
-                e.zException_Show("", action: enExceptionAction.ShowMessage);
+                throw;
             }
         }
 

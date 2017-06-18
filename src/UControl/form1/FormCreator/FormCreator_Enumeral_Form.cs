@@ -97,7 +97,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
-                exception.zException_Show(action: enExceptionAction.ShowMessage);
+                throw;
             }
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using LamedalCore;
 using LamedalCore.zz;
 using Lamedal_UIWinForms.zzz;
 
@@ -122,7 +123,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Controls
             }
             catch (Exception ex)
             {
-                ex.zException_Show(action: enExceptionAction.ShowMessage);
+                throw;
             }
 
         }
@@ -133,7 +134,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Controls
         /// <param name="selectedIndex">The selected index setting. Default value = -1.</param>
         public void Items_FromEnumeral(ListBox listBox, Type enumToConvert, int selectedIndex = -1)
         {
-            LaMedalPortable.Instance.Types.Enum.To_IList(listBox.Items, enumToConvert);
+            LamedalCore_.Instance.Types.Enum.enum_2IList(listBox.Items, enumToConvert);
             if (selectedIndex != -1) listBox.SelectedIndex = selectedIndex;
         }
 

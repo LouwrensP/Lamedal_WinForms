@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using Lamedal_UIWinForms.Enumerals;
 using Lamedal_UIWinForms.Events;
+using Lamedal_UIWinForms.State;
 
 namespace Lamedal_UIWinForms.libUI.WinForms.Controls.Charts
 {

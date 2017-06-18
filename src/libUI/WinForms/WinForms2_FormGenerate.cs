@@ -11,6 +11,7 @@ using Lamedal_UIWinForms.Enumerals;
 using Lamedal_UIWinForms.Events;
 using Lamedal_UIWinForms.libUI.Interfaces;
 using Lamedal_UIWinForms.libUI.WinForms.UIDesigner;
+using Lamedal_UIWinForms.State;
 using Lamedal_UIWinForms.UControl.Forms.Dialog;
 using Lamedal_UIWinForms.UControl.Input;
 using Lamedal_UIWinForms.zzz;

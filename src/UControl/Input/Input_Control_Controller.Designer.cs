@@ -118,9 +118,9 @@ namespace Lamedal_UIWinForms.UControl.Input
             }
             catch (Exception ex)
             {
-                // Get the calling method
-                var msg = UIWindows.Instance.Exceptions.Method_Stacktrace_AsStr(false, "Value_Set");
-                ex.zException_Show(msg, action: enExceptionAction.ShowMessage_andThrowError);
+                // Get the calling method and provide more context to the error
+                var msg = Lamedal_WinForms.Instance.Exceptions.Method_Stacktrace_AsStr(false, "Value_Set");
+                throw new Exception(msg, ex); 
             }
         }
         /// <summary>
