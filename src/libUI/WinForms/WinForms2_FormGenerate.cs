@@ -9,6 +9,7 @@ using LamedalCore;
 using LamedalCore.zz;
 using Lamedal_UIWinForms.Enumerals;
 using Lamedal_UIWinForms.Events;
+using Lamedal_UIWinForms.lib.dotNet;
 using Lamedal_UIWinForms.libUI.Interfaces;
 using Lamedal_UIWinForms.libUI.WinForms.UIDesigner;
 using Lamedal_UIWinForms.State;
@@ -338,8 +339,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             if (fieldDefinition == null)
             {
                 var errMsg = "Error! Field '{0}.{1}' does not exist!".zFormat(type.ToString(), fieldName);
-                errMsg.zException_Show(action: enExceptionAction.ShowMessage);
-                return;
+                throw new ArgumentException(errMsg, nameof(fieldName));
             }
 
             // Check the ID value
@@ -349,10 +349,9 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             {
                 if (id != fieldId)
                 {
-                    var msg = "Error in object mapping!".NL() + "Field '{0}.{1}'".zFormat(type.ToString(), fieldName).NL() +
+                    string msg = "Error in object mapping!".NL() + "Field '{0}.{1}'".zFormat(type.ToString(), fieldName).NL() +
                               "{0} id = {1} (and not {2} as expected)".zFormat(fieldName, fieldId, id);
-                    msg.zException_Show(action: enExceptionAction.ShowMessage);
-                    return;
+                    throw new ArgumentException(msg, nameof(id));
                 }
             }
 

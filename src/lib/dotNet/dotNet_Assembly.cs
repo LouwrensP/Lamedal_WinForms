@@ -6,6 +6,7 @@ using System.Reflection;
 using LamedalCore.domain.Attributes;
 using LamedalCore.domain.Enumerals;
 using LamedalCore.zz;
+using Lamedal_UIWinForms.zzz;
 
 namespace Lamedal_UIWinForms.lib.dotNet
 {
@@ -88,7 +89,7 @@ namespace Lamedal_UIWinForms.lib.dotNet
         {
             var result = Get_All(filterAssemblies, filters);
             assemblyNames = result.Select(x => x.FullName.zvar_Id(" ")).ToList();
-            assemblyNames = assemblyNames.zUnique(true);
+            assemblyNames = assemblyNames.zUnique();
             return result;
         }
 

@@ -181,7 +181,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms.UIDesigner
 
             if (fieldType == typeof(bool)) input.ControlType = enInputControl_Type.Checkbox1;   // Checkbox
             if (fieldType == typeof(DateTime)) input.ControlType = enInputControl_Type.DateTime;  // DateTime
-            if (LamedalCore_.Instance.Types.Enum.IsEnumerable(fieldType)))
+            if (LamedalCore_.Instance.Types.Enum.IsEnumerable(fieldType))
             {
                 // ComboBox
                 input.ControlType = enInputControl_Type.Combobox;

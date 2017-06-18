@@ -131,17 +131,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             return Clipboard.GetText();
         }
 
-#if !TEST_OFF // =======================
-        [Fact]
-        [STAThread]
-        public void Clipboard_CopyStrTo_Test()
-        {
-            var test = "This is a test string";
-            Clipboard_CopyStrTo(test);
-            var test2 = Clipboard_GetStrFrom();
-            Assert.Equal(test, test2);
-        }
-#endif
+
 
         /// <summary>
         /// Determines if Designer is active for the control.

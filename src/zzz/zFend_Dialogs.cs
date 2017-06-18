@@ -59,18 +59,18 @@ namespace Lamedal_UIWinForms.zzz
             return Lamedal_WinForms.Instance.libUI.WinForms.Dialog_Simple.File_Dialog_Button_Click(button, out selectedFile, filterType, dialogType, updateButton);
         }
 
-        /// <summary>
-        /// Dumps the specified object properties.
-        /// </summary>
-        /// <param name="Object">The Object.</param>
-        /// <param name="indentSize">Size of the indent.</param>
-        /// <param name="maxLength">The maximum length.</param>
-        /// <param name="maxItemCount">The maximum item count2.</param>
-        /// <returns>System.String.</returns>
-        public static string zzObjectProperties_AsStr(this object Object, int indentSize = 2, int maxLength = 1000, int maxItemCount = 20)
-        {
-            return Lamedal_WinForms.Instance.lib.dotNet.Stream.StrFormated_FromObject(Object, indentSize, maxLength, maxItemCount);
-        }
+        ///// <summary>
+        ///// Dumps the specified object properties.
+        ///// </summary>
+        ///// <param name="Object">The Object.</param>
+        ///// <param name="indentSize">Size of the indent.</param>
+        ///// <param name="maxLength">The maximum length.</param>
+        ///// <param name="maxItemCount">The maximum item count2.</param>
+        ///// <returns>System.String.</returns>
+        //public static string zzObjectProperties_AsStr(this object Object, int indentSize = 2, int maxLength = 1000, int maxItemCount = 20)
+        //{
+        //    return Lamedal_WinForms.Instance.lib.dotNet.Stream.StrFormated_FromObject(Object, indentSize, maxLength, maxItemCount);
+        //}
 
         /// <summary>
         /// Function to show a waitcursor dialog progress from the message string.

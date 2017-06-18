@@ -79,6 +79,7 @@
     <Compile Include="tests\system_Callback_TestsForm.Designer.cs">
       <DependentUpon>system_Callback_TestsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="tests\WinForms_Tests.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

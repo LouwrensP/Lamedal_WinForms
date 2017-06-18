@@ -316,6 +316,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UControl\_Designer\TextBox_Designer.cs" />
+    <Compile Include="zzz\Types_IEnumerable_T_Shortcut.cs" />
     <Compile Include="zzz\UIWindows_Shortcut.cs" />
     <Compile Include="zzz\UI_Controls_Shortcut.cs" />
     <Compile Include="zzz\zFend_Dialogs.cs" />
