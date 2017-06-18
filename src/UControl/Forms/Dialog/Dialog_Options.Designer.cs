@@ -1,6 +1,7 @@
 ﻿using Lamedal_UIWinForms.UControl.button;
 using Lamedal_UIWinForms.UControl.panel;
 using Lamedal_UIWinForms.UControl._Designer;
+using Lamedal_UIWinForms.Events;
 
 namespace Lamedal_UIWinForms.UControl.Forms.Dialog
 {

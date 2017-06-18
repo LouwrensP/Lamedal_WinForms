@@ -161,7 +161,7 @@ namespace Lamedal_UIWinForms.UControl.form1
             catch (Exception ex)
             {
                 _Form_Startup = false;
-                ex.zException_Show(action: enExceptionAction.ShowMessage);
+                throw;
             }
             _Form_Startup = false;
 

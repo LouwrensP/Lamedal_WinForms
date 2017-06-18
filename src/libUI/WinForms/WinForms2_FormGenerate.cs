@@ -90,10 +90,8 @@ namespace Lamedal_UIWinForms.libUI.WinForms
                     PropertyInfo property = properties.FirstOrDefault(x => x.Name == fieldName);
                     if (property == null)
                     {
-                        var errMsg =
-                            "Error! Unable to find form control in the model for field name '{0}'.".zFormat(fieldName);
-                        errMsg.zException_Show(action: enExceptionAction.ShowMessage);
-                        return;
+                        var errMsg = "Error! Unable to find form control in the model for field name '{0}'.".zFormat(fieldName);
+                        throw new Exception(errMsg);
                     }
                     value = property.GetValue(Object, null);
                 }
@@ -137,8 +135,8 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             Type fieldType = fieldInfo.FieldType;
 
             object value;
-            if (fieldValue.zIsNullOrEmpty()) value = Lamedal_WinForms.Instance.Types.Generic.DefaultValue(fieldType);
-            else value = Lamedal_WinForms.Instance.Types.Generic.Convert(fieldValue, fieldType);
+            if (fieldValue.zIsNullOrEmpty()) value = LamedalCore_.Instance.Types.Object.DefaultValue(fieldType);
+            else value = LamedalCore_.Instance.Types.Object.CastTo(fieldValue, fieldType);
             fieldInfo.SetValue(Object, value);
         }
 
@@ -374,18 +372,18 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             var type = Object.GetType();
 
             // Set the fields
-            FieldInfo[] fields = Lamedal_WinForms.Instance.Types.Generic.Class_Fields(type);
+            FieldInfo[] fields = LamedalCore_.Instance.Types.Object.Class_Fields(type);
             foreach (FieldInfo field in fields)
             {
-                object value = Lamedal_WinForms.Instance.Types.Generic.DefaultValue(type);
+                object value = LamedalCore_.Instance.Types.Object.DefaultValue(type);
                 field.SetValue(Object, value);
             }
 
             // Set the properties
-            PropertyInfo[] properties = Lamedal_WinForms.Instance.Types.Generic.Class_Properties(type);
+            PropertyInfo[] properties = LamedalCore_.Instance.Types.Object.Class_Properties(type);
             foreach (PropertyInfo property in properties)
             {
-                object value = Lamedal_WinForms.Instance.Types.Generic.DefaultValue(type);
+                object value = LamedalCore_.Instance.Types.Object.DefaultValue(type);
                 var setter = property.GetSetMethod();
                 if (setter != null) property.SetValue(Object, value, null);
             }
