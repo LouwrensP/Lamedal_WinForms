@@ -32,8 +32,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,12 +44,330 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\lamedal\trunk\lamedalport\lamedalport.uiwindows\libui\winforms\uidesigner\UIDesigner_Component.cs">
+      <Link>UControl\UIDesigner\UIDesigner_Component.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\lamedal\trunk\lamedalport\lamedalport.uiwindows\libui\winforms\uidesigner\UIDesigner_Service.cs">
+      <Link>UControl\UIDesigner\UIDesigner_Service.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\lamedal\trunk\lamedalport\lamedalport.uiwindows\libui\winforms\uidesigner\UIDesigner_Tools.cs">
+      <Link>UControl\UIDesigner\UIDesigner_Tools.cs</Link>
+    </Compile>
+    <Compile Include="Enumerals\enChartEventType.cs" />
+    <Compile Include="Enumerals\enFormPanel.cs" />
+    <Compile Include="Enumerals\enFormPanels.cs" />
+    <Compile Include="Enumerals\enFormSize.cs" />
+    <Compile Include="Enumerals\enInputControl_CustomAction.cs" />
+    <Compile Include="Enumerals\enInputControl_Type.cs" />
+    <Compile Include="Enumerals\enInputControl_Width.cs" />
+    <Compile Include="Enumerals\enPart_Size.cs" />
+    <Compile Include="Enumerals\enPart_Type.cs" />
+    <Compile Include="Enumerals\enStandardButtons.cs" />
+    <Compile Include="Enumerals\enumValue_Attribute.cs" />
+    <Compile Include="Enumerals\enumValue_Controller.cs" />
+    <Compile Include="Events\evAIState_DialogChoicesEventHandler.cs" />
+    <Compile Include="Events\evAIstate_DialogChoices_EventArgs.cs" />
+    <Compile Include="Events\evChartHitInfo.cs" />
+    <Compile Include="Events\evChartHitInfo_EventArgs.cs" />
+    <Compile Include="Events\evDataTable_Commit_PostError.cs" />
+    <Compile Include="Events\evDataTable_Commit_Pre.cs" />
+    <Compile Include="Events\event_Handlers.cs" />
+    <Compile Include="Events\evEnum2Control_Changed.cs" />
+    <Compile Include="Events\evInput_Control_EventArgs.cs" />
+    <Compile Include="Events\evStandardButtons_EventArgs.cs" />
+    <Compile Include="libUI\libUI2_.cs" />
+    <Compile Include="libUI\Win32\shell32.cs" />
+    <Compile Include="libUI\Win32\shell32_FileInfo.cs" />
+    <Compile Include="libUI\Win32\user32.cs" />
+    <Compile Include="libUI\WinForms\Callback\Callback_.cs" />
+    <Compile Include="libUI\WinForms\Callback\system_Callback_Tests.cs" />
+    <Compile Include="libUI\WinForms\Callback\system_Callback_TestsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="libUI\WinForms\Callback\system_Callback_TestsForm.Designer.cs">
+      <DependentUpon>system_Callback_TestsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="libUI\WinForms\Controls\Charts\Charts_.cs" />
+    <Compile Include="libUI\WinForms\Controls\Charts\Charts_Mouse.cs" />
+    <Compile Include="libUI\WinForms\Controls\Charts\Charts_Setup.cs" />
+    <Compile Include="libUI\WinForms\Controls\Controls_.cs" />
+    <Compile Include="libUI\WinForms\Controls\Controls_ComboBox.cs" />
+    <Compile Include="libUI\WinForms\Controls\Controls_Control.cs" />
+    <Compile Include="libUI\WinForms\Controls\Controls_Create.cs" />
+    <Compile Include="libUI\WinForms\Controls\Controls_Events.cs" />
+    <Compile Include="libUI\WinForms\Controls\Controls_ListBox.cs" />
+    <Compile Include="libUI\WinForms\Controls\Controls_ListView.cs" />
+    <Compile Include="libUI\WinForms\Controls\Controls_Other.cs" />
+    <Compile Include="libUI\WinForms\Controls\Controls_TextBox.cs" />
+    <Compile Include="libUI\WinForms\UIDesigner\UIDesigner_.cs" />
+    <Compile Include="libUI\WinForms\UIDesigner\UIDesigner_Code.cs" />
+    <Compile Include="libUI\WinForms\UIDesigner\UIDesigner_Component.cs" />
+    <Compile Include="libUI\WinForms\UIDesigner\UIDesigner_Form.cs" />
+    <Compile Include="libUI\WinForms\UIDesigner\UIDesigner_Generate.cs" />
+    <Compile Include="libUI\WinForms\UIDesigner\UIDesigner_Menu.cs" />
+    <Compile Include="libUI\WinForms\UIDesigner\UIDesigner_Service.cs" />
+    <Compile Include="libUI\WinForms\UIDesigner\UIDesigner_Tools.cs" />
+    <Compile Include="libUI\WinForms\WinDB\WinDB_.cs" />
+    <Compile Include="libUI\WinForms\WinDB\WinGridView\WinGridView_.cs" />
+    <Compile Include="libUI\WinForms\WinDB\WinGridView\WinGridView_Columns.cs" />
+    <Compile Include="libUI\WinForms\WinDB\WinGridView\WinGridView_Rows.cs" />
+    <Compile Include="libUI\WinForms\WinDB\WinGridView\WinGridView_Setup.cs" />
+    <Compile Include="libUI\WinForms\WinForms2_Console.cs" />
+    <Compile Include="libUI\WinForms\WinForms2_Dialogs.cs" />
+    <Compile Include="libUI\WinForms\WinForms2_Form.cs" />
+    <Compile Include="libUI\WinForms\WinForms2_FormGenerate.cs" />
+    <Compile Include="libUI\WinForms\WinForms2_Screen.cs" />
+    <Compile Include="libUI\WinForms\WinForms2_SendKeys.cs" />
+    <Compile Include="libUI\WinForms\WinForms2_Setting.cs" />
+    <Compile Include="libUI\WinForms\WinForms_.cs" />
+    <Compile Include="libUI\WinForms\WinForms_Dialog_Simple.cs" />
+    <Compile Include="libUI\WinForms\WinForms_Idle.cs" />
+    <Compile Include="libUI\WinForms\WinForms_MindMap.cs" />
+    <Compile Include="libUI\WinForms\WinForms_Runtime2.cs" />
+    <Compile Include="libUI\WinForms\WinForms_Tools.cs" />
+    <Compile Include="libUI\WinForms\WinForms_WaitCursor.cs" />
+    <Compile Include="libUI\Interfaces\IUControl.cs" />
+    <Compile Include="libUI\Interfaces\IUControl_Autosize.cs" />
+    <Compile Include="libUI\Interfaces\IUControl_Docking.cs" />
+    <Compile Include="libUI\Interfaces\IUControl_ObjectModel.cs" />
     <Compile Include="Lamedal_WinForms.cs" />
-    <Compile Include="lib\lib_.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UControl\button\Button_.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UControl\button\Button_Standard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\button\Button_Standard.Designer.cs">
+      <DependentUpon>Button_Standard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\button\Button_Standard_Class.cs" />
+    <Compile Include="UControl\button\Button_Standard_Designer.cs" />
+    <Compile Include="UControl\form1\FormControls_.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UControl\form1\FormControls_Designer.cs" />
+    <Compile Include="UControl\form1\FormCreator\FormCreator_.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UControl\form1\FormCreator\FormCreator_.Designer.cs">
+      <DependentUpon>FormCreator_.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\form1\FormCreator\FormCreator_Designer.cs" />
+    <Compile Include="UControl\form1\FormCreator\FormCreator_Enumeral_2Control.cs" />
+    <Compile Include="UControl\form1\FormCreator\FormCreator_Enumeral_2Control_Controller.cs" />
+    <Compile Include="UControl\form1\FormCreator\FormCreator_Enumeral_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UControl\form1\FormCreator\FormCreator_Enumeral_Form.Designer.cs">
+      <DependentUpon>FormCreator_Enumeral_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\form1\FormCreator\FormCreator_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UControl\form1\FormCreator\FormCreator_Form.Designer.cs">
+      <DependentUpon>FormCreator_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\form1\FormCreator\FormCreator_SelectClasses_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UControl\form1\FormCreator\FormCreator_SelectClasses_Form.Designer.cs">
+      <DependentUpon>FormCreator_SelectClasses_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\form1\Form_.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UControl\form1\Form_.Designer.cs">
+      <DependentUpon>Form_.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\form1\Form_Designer.cs" />
+    <Compile Include="UControl\Forms\Dialog\Dialog_InputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UControl\Forms\Dialog\Dialog_InputBox.Designer.cs">
+      <DependentUpon>Dialog_InputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\Forms\Dialog\Dialog_Memo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UControl\Forms\Dialog\Dialog_Memo.Designer.cs">
+      <DependentUpon>Dialog_Memo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\Forms\Dialog\Dialog_Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UControl\Forms\Dialog\Dialog_Options.Designer.cs">
+      <DependentUpon>Dialog_Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\Forms\Dialog\Forms_Progress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UControl\Forms\Dialog\Forms_Progress.Designer.cs">
+      <DependentUpon>Forms_Progress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\Forms\Dialog\Form_ClassDialog1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UControl\Forms\Dialog\Form_ClassDialog1.Designer.cs">
+      <DependentUpon>Form_ClassDialog1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\Forms\Dialog\Form_ClassDialog2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UControl\Forms\Dialog\Form_ClassDialog2.Designer.cs">
+      <DependentUpon>Form_ClassDialog2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\Forms\Dialog\Form_ClassDialog3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UControl\Forms\Dialog\Form_ClassDialog3.Designer.cs">
+      <DependentUpon>Form_ClassDialog3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\Forms\Dialog\Progress_WaitCursor_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UControl\Forms\Dialog\Progress_WaitCursor_Form.Designer.cs">
+      <DependentUpon>Progress_WaitCursor_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\Forms\Dialog\stateDialog.cs" />
+    <Compile Include="UControl\Forms\Dialog\WinForms_WaitCursor.cs" />
+    <Compile Include="UControl\Forms\Forms_.cs" />
+    <Compile Include="UControl\Forms\Forms_Dialogs.cs" />
+    <Compile Include="UControl\Input\Input_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\Input\Input_Control.Designer.cs">
+      <DependentUpon>Input_Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\Input\Input_Control_Controller.cs" />
+    <Compile Include="UControl\Input\Input_Control_Controller.Designer.cs">
+      <DependentUpon>Input_Control_Controller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\Input\Input_Control_Designer.cs" />
+    <Compile Include="UControl\Input\Input_Control_Tools.cs" />
+    <Compile Include="UControl\panel\Panel_.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UControl\panel\Panel_Designer.cs" />
+    <Compile Include="UControl\panel\Panel_DesignerContainer.cs" />
+    <Compile Include="UControl\panel\Panel_Transparent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UControl\panel\Panel_Transparent_Manager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\panel\Panel_Transparent_Manager.Designer.cs">
+      <DependentUpon>Panel_Transparent_Manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\UControlTest\Form_TestWindowsUControls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UControl\UControlTest\Form_TestWindowsUControls.Designer.cs">
+      <DependentUpon>Form_TestWindowsUControls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\UControlTest\TestComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UControl\UControlTest\TestComponent.Designer.cs">
+      <DependentUpon>TestComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\UControlTest\TestComponent_Designer.cs" />
+    <Compile Include="UControl\UControl_Interface_Designer.cs" />
+    <Compile Include="UControl\UserControl_.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\UserControl_.Designer.cs">
+      <DependentUpon>UserControl_.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\_Designer\CheckBox_.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UControl\_Designer\ComboBox_.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UControl\_Designer\GroupBox_.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UControl\_Designer\GroupBox_Designer.cs" />
+    <Compile Include="UControl\_Designer\GroupBox_Partial.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UControl\_Designer\Label_.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UControl\_Designer\ListBox_.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UControl\_Designer\TextBox_.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UControl\_Designer\TextBox_Designer.cs" />
+    <Compile Include="zzz\UIWindows_Shortcut.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="libUI\WinForms\Callback\system_Callback_TestsForm.resx">
+      <DependentUpon>system_Callback_TestsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\button\Button_Standard.resx">
+      <DependentUpon>Button_Standard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\form1\FormCreator\FormCreator_Enumeral_Form.resx">
+      <DependentUpon>FormCreator_Enumeral_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\form1\FormCreator\FormCreator_Form.resx">
+      <DependentUpon>FormCreator_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\form1\FormCreator\FormCreator_SelectClasses_Form.resx">
+      <DependentUpon>FormCreator_SelectClasses_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\Forms\Dialog\Dialog_Inputbox.resx">
+      <DependentUpon>Dialog_InputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\Forms\Dialog\Dialog_Memo.resx">
+      <DependentUpon>Dialog_Memo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\Forms\Dialog\Dialog_Options.resx">
+      <DependentUpon>Dialog_Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\Forms\Dialog\Forms_Progress.resx">
+      <DependentUpon>Forms_Progress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\Forms\Dialog\Form_ClassDialog1.resx">
+      <DependentUpon>Form_ClassDialog1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\Forms\Dialog\Form_ClassDialog2.resx">
+      <DependentUpon>Form_ClassDialog2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\Forms\Dialog\Form_ClassDialog3.resx">
+      <DependentUpon>Form_ClassDialog3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\Forms\Dialog\Progress_WaitCursor_Form.resx">
+      <DependentUpon>Progress_WaitCursor_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\Input\Input_Control.resx">
+      <DependentUpon>Input_Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\panel\Panel_Transparent_Manager.resx">
+      <DependentUpon>Panel_Transparent_Manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\UControlTest\Form_TestWindowsUControls.resx">
+      <DependentUpon>Form_TestWindowsUControls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\UserControl_.resx">
+      <DependentUpon>UserControl_.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\LamedalCore\src\LamedalCore.csproj">
+      <Project>{421feb9f-b016-45bd-98be-9b4889f39057}</Project>
+      <Name>LamedalCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
-﻿using Lamedal_UIWinForms.lib;
+﻿using LamedalCore.lib;
+using Lamedal_UIWinForms.libUI;
 
 namespace Lamedal_UIWinForms
 {
@@ -26,11 +27,11 @@ namespace Lamedal_UIWinForms
         /// <summary>
         /// Gets the lib library methods.
         /// </summary>
-        public lib_ lib
+        public libUI2_ libUI
         {
-            get { return _lib ?? (_lib = new lib_()); }
+            get { return _lib ?? (_lib = new libUI2_()); }
         }
-        private lib_ _lib;
+        private libUI2_ _lib;
         #endregion
 
     }
