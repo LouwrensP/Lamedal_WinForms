@@ -15,7 +15,6 @@ namespace Lamedal_UIWinForms.lib.dotNet
     [BlueprintRule_Class(enBlueprint_ClassNetworkType.Node_Action)]
     public sealed class dotNet_Resources
     {
-        private readonly Lamedal_WinForms _uiWindows = Lamedal_WinForms.Instance; // Instance to UIWindows
         private readonly LamedalCore_ _lamed = LamedalCore_.Instance;  // Create new instance of the blueprint library
 
         /// <summary>
@@ -23,11 +22,11 @@ namespace Lamedal_UIWinForms.lib.dotNet
         /// </summary>
         /// <param name="exe">The executable</param>
         /// <param name="loadThisAssemblyName">The load this assembly name</param>
-        /// <returns>Assembly</returns>
+        /// <returns>Assembly_Get</returns>
         public Assembly Assembly_Load(Assembly exe, string loadThisAssemblyName)
         {
             string dllResourceName = FindName(exe, loadThisAssemblyName);
-            //string[] names = exe.GetManifestResourceNames();   // Uncomment this line to debug the possible values for dllName Assembly assembly;
+            //string[] names = exe.GetManifestResourceNames();   // Uncomment this line to debug the possible values for dllName Assembly_Get assembly;
 
             using (Stream stream = exe.GetManifestResourceStream(dllResourceName))
             {
@@ -91,7 +90,7 @@ namespace Lamedal_UIWinForms.lib.dotNet
         public bool Convert_ToStrList(Assembly assembly, out List<string> source, string fileName, string resourceFile = "Properties.Resources")
         {
             source = null;
-            var stringDictionary = _uiWindows.lib.dotNet.Resources.Convert_ToStrDictionary(assembly, resourceFile);
+            var stringDictionary = Convert_ToStrDictionary(assembly, resourceFile);
             string sourceLine;
             if (stringDictionary.TryGetValue(fileName, out sourceLine))
             {
@@ -107,7 +106,7 @@ namespace Lamedal_UIWinForms.lib.dotNet
         ///// <param name="assembly">The assembly</param>
         ///// <param name="filter">The filter setting. Default value = &quot;&quot;.</param>
         ///// <returns>List<string/></returns>
-        //public List<string> Convert_ToStrList(Assembly assembly, string filter = "")
+        //public List<string> Convert_ToStrList(Assembly_Get assembly, string filter = "")
         //{
         //    // I was not able to get this to work - need more testing
         //    var resources = assembly.GetManifestResourceNames();
@@ -134,8 +133,7 @@ namespace Lamedal_UIWinForms.lib.dotNet
         /// <returns>ResourceSet</returns>
         public ResourceSet ResourceSet(Assembly assembly, string resourceFile = "Properties.Resources")
         {
-            var rootNamespace = _uiWindows.lib.dotNet.Assembly.Namespace(assembly) + "." + resourceFile;
-
+            var rootNamespace = _lamed.Types.Assembly.To_Namespace(assembly) + "." + resourceFile;
             var resourceManager = new ResourceManager(rootNamespace, assembly);
             ResourceSet resourceSet = resourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
             return resourceSet;

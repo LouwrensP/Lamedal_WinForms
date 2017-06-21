@@ -7,9 +7,9 @@ namespace Lamedal_UIWinForms.lib.dotNet
     public sealed class dotNet_
     {
 
-        #region Assembly
+        #region Assembly_Get
         /// <summary>
-        /// Gets the Assembly library methods.
+        /// Gets the Assembly_Get library methods.
         /// </summary>
         public dotNet_Assembly Assembly
         {
@@ -17,19 +17,6 @@ namespace Lamedal_UIWinForms.lib.dotNet
         }
         private dotNet_Assembly _Assembly;
         #endregion
-
-
-        #region ClassAttribute
-        /// <summary>
-        /// Gets the Attribute library methods.
-        /// </summary>
-        public dotNet_ClassAttribute ClassAttribute
-        {
-            get { return _Attribute ?? (_Attribute = new dotNet_ClassAttribute()); }
-        }
-        private dotNet_ClassAttribute _Attribute;
-        #endregion
-
 
         #region Resources
         /// <summary>

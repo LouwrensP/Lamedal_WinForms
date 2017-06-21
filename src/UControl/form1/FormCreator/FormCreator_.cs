@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Reflection;
 using System.Windows.Forms;
+using LamedalCore;
 using LamedalCore.domain.Attributes;
 using LamedalCore.zz;
 using Lamedal_UIWinForms.lib.dotNet;
@@ -249,7 +250,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
         private bool ClassTypeDef(object sender, out Tuple<Type, Attribute> classTypeAttribute)
         {
             classTypeAttribute = null;
-            Assembly assembly = Lamedal_WinForms.Instance.lib.dotNet.Assembly.Get_(sender);
+            Assembly assembly = LamedalCore_.Instance.Types.Assembly.From_Object(sender);
             Dictionary<string, Tuple<Type, Attribute>> typeAttributeDictionary;
             if (_lamedalWin.libUI.WinForms.FormGenerate.AssemblyTypes(assembly, out typeAttributeDictionary) == false)
             {

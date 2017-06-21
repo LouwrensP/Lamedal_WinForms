@@ -131,7 +131,6 @@
     <Compile Include="Lamedal_WinForms.cs" />
     <Compile Include="lib\dotNet\dotNet_.cs" />
     <Compile Include="lib\dotNet\dotNet_Assembly.cs" />
-    <Compile Include="lib\dotNet\dotNet_ClassAttribute.cs" />
     <Compile Include="lib\dotNet\dotNet_Resources.cs" />
     <Compile Include="lib\dotNet\dotNet_Stream_Object2Str.cs" />
     <Compile Include="lib\dotNet\stateAssemblyFilters.cs" />

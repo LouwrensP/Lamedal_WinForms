@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
+using LamedalCore;
 using LamedalCore.zz;
 
 namespace Lamedal_UIWinForms.UControl.form1.FormCreator
@@ -33,7 +34,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
         public void Setup(Component component)
         {
             // Populate the list of classes that can be generated
-            Assembly assembly = Lamedal_WinForms.Instance.lib.dotNet.Assembly.Get_(component);
+            Assembly assembly = LamedalCore_.Instance.Types.Assembly.From_Object(component);
 
             List<string> typeNameList;
             if (IamWindows.libUI.WinForms.FormGenerate.AssemblyTypes(assembly, out typeNameList, out _typeAttributeDictionary))

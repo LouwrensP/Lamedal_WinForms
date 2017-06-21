@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Reflection;
 using System.Windows.Forms;
+using LamedalCore;
 using LamedalCore.zz;
 using Lamedal_UIWinForms.Enumerals;
 using Lamedal_UIWinForms.Events;
@@ -74,7 +75,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
                 UIDesigner_Component.ControlNames(_components).zTo_IList(listBox_Components.Items); 
 
                 // Populate the list of classes that can be generated
-                Assembly assembly = _dotNet.Assembly.Get_(designer);
+                Assembly assembly = LamedalCore_.Instance.Types.Assembly.From_Object(designer);
                 List<string> typeNameList;
                 if (IamWindows.libUI.WinForms.FormGenerate.AssemblyTypes(assembly, out typeNameList, out _typeAttributeDictionary))
                 {

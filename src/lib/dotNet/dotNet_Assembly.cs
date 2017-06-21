@@ -14,54 +14,21 @@ namespace Lamedal_UIWinForms.lib.dotNet
     [BlueprintRule_Class(enBlueprint_ClassNetworkType.Node_Action, DefaultType = typeof(Assembly))]
     public sealed class dotNet_Assembly
     {
-        private readonly dotNet_ _dotNet = Lamedal_WinForms.Instance.lib.dotNet;
-        /// <summary>
-        /// Gets the file version information.
-        /// </summary>
-        /// <param name="assembly">The assembly.</param>
-        /// <returns></returns>
-        public FileVersionInfo FileVersionInfo(Assembly assembly)
-        {
-            return System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
-        }
-
-        /// <summary>Loads the Assembly for the dll or exe</summary>
-        /// <param name="dllOrExe">The DLL or exe.</param>
-        /// <returns></returns>
-        public Assembly Get_(string dllOrExe)
-        {
-            return Assembly.LoadFrom(dllOrExe);
-        }
-
-        /// <summary>Loads the Assembly for the current process.</summary>
-        public Assembly Get_()
-        {
-            var exeName = Name();
-            return Get_(exeName);
-        }
-
-        /// <summary>Loads the Assembly for the object</summary>
-        /// <param name="sender">The sender.</param>
-        /// <returns></returns>
-        public Assembly Get_(object sender)
-        {
-            return sender.GetType().Assembly;
-        }
+        private readonly LamedalCore_ _lamed = LamedalCore_.Instance;  // Create new instance of the blueprint library
 
         /// <summary>
-        /// Assembly gets the all from remove system assemblies indicator. Default value = true..
+        /// Assembly_Get gets the all from remove system assemblies indicator. Default value = true..
         /// </summary>
         /// <param name="filterAssemblies">Remove system assemblies indicator. Default value = true.</param>
         /// <param name="filters">The filters.</param>
         /// <returns>
-        /// List<Assembly />
+        /// List<Assembly_Get />
         /// </returns>
         public List<Assembly> Get_All(bool filterAssemblies = true, stateAssemblyFilters filters = null)
         {
             Assembly[] assemblyArray = AppDomain.CurrentDomain.GetAssemblies();
             List<Assembly> assemblies = assemblyArray.Where(x => x.IsDynamic == false).zUnique2().ToList();
             if (filterAssemblies == false) return assemblies;
-
             if (filters == null) filters = new stateAssemblyFilters();
 
             var assemblies2 = new List<Assembly>();
@@ -78,13 +45,13 @@ namespace Lamedal_UIWinForms.lib.dotNet
         }
 
         /// <summary>
-        /// Assembly gets the all from remove system assemblies indicator. Default value = true..
+        /// Assembly_Get gets the all from remove system assemblies indicator. Default value = true..
         /// </summary>
         /// <param name="assemblyNames">The assembly names.</param>
         /// <param name="filterAssemblies">Remove system assemblies indicator. Default value = true.</param>
         /// <param name="filters">The filters.</param>
         /// <returns>
-        /// List<Assembly />
+        /// List<Assembly_Get />
         /// </returns>
         public IList<Assembly> Get_All(out IList<string> assemblyNames, bool filterAssemblies = true, stateAssemblyFilters filters = null)
         {
@@ -92,50 +59,6 @@ namespace Lamedal_UIWinForms.lib.dotNet
             assemblyNames = result.Select(x => x.FullName.zvar_Id(" ")).ToList();
             assemblyNames = assemblyNames.zUnique();
             return result;
-        }
-
-        /// <summary>
-        /// Get the assembly exe name
-        /// </summary>
-        /// <returns>string</returns>
-        public string Name()
-        {
-            //Querying Assembly Attributes
-            var p = Process.GetCurrentProcess();
-            var assemblyName = p.ProcessName + ".exe";
-            return assemblyName;
-        }
-
-        /// <summary>
-        /// Get the assembly exe name
-        /// </summary>
-        public string Name(Assembly assembly)
-        {
-            string rootName = (assembly.ManifestModule).Name;
-            return rootName;
-        }
-
-        /// <summary>
-        /// Return the Namespace of the assembly.
-        /// </summary>
-        /// <param name="assembly">The assembly</param>
-        /// <returns>string</returns>
-        public string Namespace(Assembly assembly)
-        {
-            var rootName = Name(assembly);
-            rootName = rootName.Replace(".dll", "");
-            rootName = rootName.Replace(".exe", "");
-            return rootName;
-        }
-
-        /// <summary>
-        /// Gets the location.
-        /// </summary>
-        /// <param name="assembly">The assembly.</param>
-        /// <returns></returns>
-        public string Path(Assembly assembly)
-        {
-            return System.IO.Path.GetDirectoryName(assembly.Location);
         }
 
         /// <summary>
@@ -243,16 +166,6 @@ namespace Lamedal_UIWinForms.lib.dotNet
             IList<Type> result = Types_Enumerals(assemblies);
             typeNames = result.Select(x => x.Name).ToList().zUnique();
             return result;
-        }
-
-        /// <summary>
-        /// Gets the version.
-        /// </summary>
-        /// <param name="assembly">The assembly.</param>
-        /// <returns></returns>
-        public Version Version(Assembly assembly)
-        {
-            return assembly.GetName().Version;
         }
     }
 }

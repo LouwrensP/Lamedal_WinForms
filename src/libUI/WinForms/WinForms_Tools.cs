@@ -207,7 +207,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             string versionStr = Application.ProductVersion;
 
             // Days since 1.1.2000
-            Version version = Assembly.GetExecutingAssembly().GetName().Version;  //Assembly.GetEntryAssembly().GetName().Version;
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;  //Assembly_Get.GetEntryAssembly().GetName().Version;
             DateTime buildDateTime = new DateTime(2000, 1, 1).Add(new TimeSpan(TimeSpan.TicksPerDay * version.Build  // days since 1 January 2000
                         + TimeSpan.TicksPerSecond * 2 * version.Revision)); // seconds since midnight, (multiply by 2 to get original)
 

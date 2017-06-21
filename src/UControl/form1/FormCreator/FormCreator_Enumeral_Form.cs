@@ -84,7 +84,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
         {
             try
             {
-                //Assembly gets the all from remove system assemblies indicator. Default value = true..
+                //Assembly_Get gets the all from remove system assemblies indicator. Default value = true..
                 IList<string> assemblyNames;
                 IList<Assembly> assemblies = Lamedal_WinForms.Instance.lib.dotNet.Assembly.Get_All(out assemblyNames, true, _AssemblyFilters);
                 listBox_DLL.zListBox_Items_FromList(assemblyNames);
