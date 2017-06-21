@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using LamedalCore;
+using LamedalCore.domain.Attributes;
 using LamedalCore.zz;
 using Lamedal_UIWinForms.Enumerals;
 using Lamedal_UIWinForms.Events;
@@ -51,7 +52,8 @@ namespace Lamedal_UIWinForms.libUI.WinForms
         /// </returns>
         public bool AssemblyTypes(Assembly assembly, out List<string> typeNameList, out Dictionary<string, Tuple<Type, Attribute>> typeAttributeDictionary)
         {
-            return _dotNet.Assembly.Types(assembly, out typeNameList, out typeAttributeDictionary, filterForThisAttribute: typeof(propertyTable_Attribute));
+            var attributeToSearch = new BlueprintData_TableAttribute();
+            return _dotNet.Assembly.Types(assembly, out typeNameList, out typeAttributeDictionary, filterForThisAttribute: attributeToSearch);
         }
 
         /// <summary>
@@ -150,7 +152,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
         /// <param name="panel3">The panel3 setting. Default value = null.</param>
         /// <param name="onValueChange">The on valueue change setting. Default value = null.</param>
         /// <returns>The height of the form should be</returns>
-        public int Generate_Controls(IDesignerHost designer, Type classType, propertyTable_Attribute classAttribute, Panel panel1, Panel panel2 = null, Panel panel3 = null, EventHandler<evInput_Control_EventArgs> onValueChange = null)
+        public int Generate_Controls(IDesignerHost designer, Type classType, BlueprintData_TableAttribute classAttribute, Panel panel1, Panel panel2 = null, Panel panel3 = null, EventHandler<evInput_Control_EventArgs> onValueChange = null)
         {
             Panel panel = null;
             if (panel1 == null)
@@ -162,11 +164,12 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             // Find decorated properties for the class that is to be generated
             bool class_GenerateAllFields = (classAttribute == null) ? true : classAttribute.GenerateAllFields;
 
-            // For class type, get all fields that was marked with propertyField_Attribute
+            // For class type, get all fields that was marked with BlueprintData_FieldAttribute
             Input_Control input = null;
-            List<Tuple<FieldInfo, Attribute>> fields = _dotNet.ClassAttribute.Field_FindAttributes(classType, typeof(propertyField_Attribute), class_GenerateAllFields);
+            IList<Tuple<FieldInfo, BlueprintData_FieldAttribute>> fields = LamedalCore_.Instance.Types.Class.ClassAttributes.Find_Fields<BlueprintData_FieldAttribute>(classType);
+            // List<Tuple<FieldInfo, Attribute>> fields = _dotNet.ClassAttribute.Field_FindAttributes(classType, typeof(BlueprintData_FieldAttribute), class_GenerateAllFields);
             dynamic defaultO = UIDesigner_Form.Create(classType);
-            foreach (Tuple<FieldInfo, Attribute> field in fields)
+            foreach (Tuple<FieldInfo, BlueprintData_FieldAttribute> field in fields)
             {
                 // ===================================
                 // Read all the definition information
@@ -176,13 +179,13 @@ namespace Lamedal_UIWinForms.libUI.WinForms
                 string fieldValue = value.zObject().AsStr();
                 string fieldName = fieldInfo.Name;
 
-                var fieldDefinition = field.Item2 as propertyField_Attribute;
+                var fieldDefinition = field.Item2 as BlueprintData_FieldAttribute;
                 if (fieldDefinition == null)
                 {
-                    if (class_GenerateAllFields) fieldDefinition = new propertyField_Attribute();
+                    if (class_GenerateAllFields) fieldDefinition = new BlueprintData_FieldAttribute();
                     else
                     {
-                        "Error! Field '{0}' does not have attribute propertyField_Attribute.".zFormat(fieldName).zOk();
+                        "Error! Field '{0}' does not have attribute BlueprintData_FieldAttribute.".zFormat(fieldName).zOk();
                         continue;  // <========================================================================================
                     }
                 }
@@ -240,9 +243,9 @@ namespace Lamedal_UIWinForms.libUI.WinForms
         /// <returns>Form</returns>
         public Form Form_Generate(IObjectModel classObject, EventHandler<evInput_Control_EventArgs> onValueChange = null, enFormPanels panels = enFormPanels.OnePanel)
         {
-            propertyTable_Attribute attribute;
-            classObject.GetType().zAttribute_Find(out attribute);
-            if (attribute != null) panels = attribute.FormPanels;
+            BlueprintData_TableAttribute attribute;
+            LamedalCore_.Instance.Types.Class.ClassAttributes.Find_Class(classObject.GetType(), out attribute);
+            if (attribute != null) panels = (enFormPanels)attribute.TotalPanels;
 
 
             if (panels == enFormPanels.OnePanel)   // Create form with 1 panel
@@ -275,8 +278,9 @@ namespace Lamedal_UIWinForms.libUI.WinForms
         public bool Generate_Controls(Form form, IObjectModel classObject, Panel panel1, Panel panel2 = null, Panel panel3 = null,EventHandler<evInput_Control_EventArgs> onValueChange = null)
         {
             var type = classObject.GetType();
-            propertyTable_Attribute attribute;
-            type.zAttribute_Find(out attribute);
+            BlueprintData_TableAttribute attribute;
+            LamedalCore_.Instance.Types.Class.ClassAttributes.Find_Class(type, out attribute);
+
 
             stateForm state = form.zzState();
             state.onValueChange = onValueChange;
@@ -326,14 +330,14 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             // Double check value before assignment!
             // =====================================
             var type = model.GetType();
-            propertyField_Attribute[] fieldDefinition = null;
+            BlueprintData_FieldAttribute[] fieldDefinition = null;
 
             FieldInfo fieldInfo1 = type.GetField(fieldName);
-            if (fieldInfo1 != null) fieldDefinition = (propertyField_Attribute[])fieldInfo1.GetCustomAttributes(typeof(propertyField_Attribute), false);
+            if (fieldInfo1 != null) fieldDefinition = (BlueprintData_FieldAttribute[])fieldInfo1.GetCustomAttributes(typeof(BlueprintData_FieldAttribute), false);
             else
             {
                 PropertyInfo propertyInfo = type.GetProperty(fieldName);
-                if (propertyInfo != null) fieldDefinition = (propertyField_Attribute[])propertyInfo.GetCustomAttributes(typeof(propertyField_Attribute), false);
+                if (propertyInfo != null) fieldDefinition = (BlueprintData_FieldAttribute[])propertyInfo.GetCustomAttributes(typeof(BlueprintData_FieldAttribute), false);
             }
 
             if (fieldDefinition == null)
@@ -371,7 +375,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             var type = Object.GetType();
 
             // Set the fields
-            FieldInfo[] fields = LamedalCore_.Instance.Types.Object.Class_Fields(type);
+            FieldInfo[] fields = LamedalCore_.Instance.Types.Class.ClassInfo.Fields_AsFieldInfo(type);
             foreach (FieldInfo field in fields)
             {
                 object value = LamedalCore_.Instance.Types.Object.DefaultValue(type);
@@ -379,7 +383,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             }
 
             // Set the properties
-            PropertyInfo[] properties = LamedalCore_.Instance.Types.Object.Class_Properties(type);
+            PropertyInfo[] properties = LamedalCore_.Instance.Types.Class.ClassInfo.Properties_AsPropertyInfo(type);
             foreach (PropertyInfo property in properties)
             {
                 object value = LamedalCore_.Instance.Types.Object.DefaultValue(type);

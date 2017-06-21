@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using LamedalCore.zz;
 using Lamedal_UIWinForms.Enumerals;
 using Lamedal_UIWinForms.Events;
+using Lamedal_UIWinForms.lib.dotNet;
 using Lamedal_UIWinForms.libUI.WinForms.UIDesigner;
 using Lamedal_UIWinForms.UControl.Input;
 using Lamedal_UIWinForms.zzz;

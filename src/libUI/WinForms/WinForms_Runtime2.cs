@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using LamedalCore.domain.Attributes;
 using LamedalCore.domain.Enumerals;
+using LamedalCore.lib;
 
 namespace Lamedal_UIWinForms.libUI.WinForms
 {

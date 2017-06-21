@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
 using Lamedal_UIWinForms.Enumerals;
 using Lamedal_UIWinForms.Events;
+using Lamedal_UIWinForms.zzz;
 
 namespace Lamedal_UIWinForms.UControl.Forms.Dialog
 {

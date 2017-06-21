@@ -16,7 +16,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
 {
     public sealed partial class FormCreator_Enumeral_Form : System.Windows.Forms.Form
     {
-        private List<Type> _myEnums;
+        private IList<Type> _myEnums;
         private IDesignerHost _host;
         private Component _designer;
         private bool _SelectionChangeFlag;
@@ -85,13 +85,13 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             try
             {
                 //Assembly gets the all from remove system assemblies indicator. Default value = true..
-                List<string> assemblyNames;
-                List<Assembly> assemblies = Lamedal_WinForms.Instance.lib.dotNet.Assembly.Get_All(out assemblyNames, true, _AssemblyFilters);
+                IList<string> assemblyNames;
+                IList<Assembly> assemblies = Lamedal_WinForms.Instance.lib.dotNet.Assembly.Get_All(out assemblyNames, true, _AssemblyFilters);
                 listBox_DLL.zListBox_Items_FromList(assemblyNames);
 
                 // Show the enumerals
                 // ==================
-                List<string> typeNames;
+                IList<string> typeNames;
                 _myEnums = Lamedal_WinForms.Instance.lib.dotNet.Assembly.Types_Enumerals(assemblies, out typeNames);  //Return enumeral types from the assemblies list.
                 listBox_Enums.zListBox_Items_FromList(typeNames);
             }

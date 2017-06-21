@@ -3,13 +3,13 @@
     public enum enFormPanels
     {
         [enumValue_(260)]
-        OnePanel,
+        OnePanel =1,
 
         [enumValue_(525)]
-        TwoPanels,
+        TwoPanels =2,
         
         [enumValue_(790)]
-        TreePanels,
+        TreePanels =3,
 
         Custom
     }

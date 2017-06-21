@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using LamedalCore;
 using LamedalCore.domain.Attributes;
 using LamedalCore.domain.Enumerals;
 using LamedalCore.zz;
@@ -137,71 +138,73 @@ namespace Lamedal_UIWinForms.lib.dotNet
             return System.IO.Path.GetDirectoryName(assembly.Location);
         }
 
-        ///// <summary>
-        ///// From the assembly return  reflection types .
-        ///// </summary>
-        ///// <param name="assembly">The assembly</param>
-        ///// <param name="typeNameList">The class names.</param>
-        ///// <param name="typeAttributeDictionary">The type attributes.</param>
-        ///// <param name="filterValue">Name of the filter.</param>
-        ///// <param name="filterForThisAttribute">The filter for this attribute</param>
-        ///// <returns>
-        ///// List<string />
-        ///// </returns>
-        //public bool Types(Assembly assembly, out List<string> typeNameList, out Dictionary<string, Tuple<Type, Attribute>> typeAttributeDictionary,  
-        //    string filterValue = "", Type filterForThisAttribute = null)
-        //{
-        //    var result = false;
-        //    typeNameList = new List<string>();
-        //    typeAttributeDictionary = new Dictionary<string, Tuple<Type, Attribute>>();
+        /// <summary>
+        /// From the assembly return reflection types.
+        /// </summary>
+        /// <param name="assembly">The assembly</param>
+        /// <param name="typeNameList">The class names.</param>
+        /// <param name="typeAttributeDictionary">The type attributes.</param>
+        /// <param name="filterValue">Name of the filter.</param>
+        /// <param name="filterForThisAttribute">The filter for this attribute</param>
+        /// <returns>
+        /// List<string />
+        /// </returns>
+        public bool Types(Assembly assembly, out List<string> typeNameList, out Dictionary<string, Tuple<Type, Attribute>> typeAttributeDictionary,
+            string filterValue = "", Attribute filterForThisAttribute = null)
+        {
+            var result = false;
+            typeNameList = new List<string>();
+            typeAttributeDictionary = new Dictionary<string, Tuple<Type, Attribute>>();
 
-        //    Type[] classTypes = assembly.GetTypes();
+            Type[] classTypes = assembly.GetTypes();
 
-        //    foreach (Type classType in classTypes)
-        //    {
-        //        string classTypeName = classType.FullName;
-        //        if (filterForThisAttribute == null && filterValue == "") typeNameList.Add(classTypeName);
-        //        else
-        //        {
-        //            bool found = true;
-        //            Attribute attribute = null;
+            foreach (Type classType in classTypes)
+            {
+                string classTypeName = classType.FullName;
+                if (filterForThisAttribute == null && filterValue == "") typeNameList.Add(classTypeName);
+                else
+                {
+                    bool found = true;
+                    Attribute attribute = null;
 
-        //            // Filter for attribute
-        //            if (filterForThisAttribute != null)
-        //            {
-        //                if (_dotNet.ClassAttribute.Type_FindAttribute(classType, out attribute, filterForThisAttribute) == enAttributeLocation.None) found = false;
-        //            }
+                    // Filter for attribute
+                    if (filterForThisAttribute != null)
+                    {
+                        if (LamedalCore_.Instance.Types.Class.ClassAttributes.Find_ForType(classType,out filterForThisAttribute) == enCode_AttributeLocation.None)
+                            found = false;
+                        else attribute = filterForThisAttribute;   // filter attribute was found, assign it to attribute
+                    }
 
-        //            // Filter for string
-        //            if (found && filterValue != "")
-        //            {
-        //                if (classTypeName.Contains(filterValue) == false) found = false;
-        //            }
+                    // Filter for string
+                    if (found && filterValue != "")
+                    {
+                        if (classTypeName.Contains(filterValue) == false) found = false;
+                    }
 
-        //            if (found)
-        //            {
-        //                typeNameList.Add(classTypeName);
-        //                typeAttributeDictionary.Add(classTypeName, new Tuple<Type, Attribute>(classType,attribute));
-        //                result = true;
-        //            }
-        //        }
-        //    }
-        //    return result;
-        //}
+                    if (found)
+                    {
+                        typeNameList.Add(classTypeName);
+                        typeAttributeDictionary.Add(classTypeName, new Tuple<Type, Attribute>(classType, attribute));
+                        result = true;
+                    }
+                }
+            }
+            return result;
+        }
 
-        ///// <summary>
-        ///// Locate the assembly assembly types to string list.
-        ///// </summary>
-        ///// <param name="assembly">The assembly</param>
-        ///// <param name="filterForThisAttribute">The filter for this attribute setting. Default value = null.</param>
-        ///// <returns>List<string/></returns>
-        //public List<string> Types_AsStrList(Assembly assembly, Type filterForThisAttribute = null)
-        //{
-        //    List<string> typeNameList;
-        //    Dictionary<string, Tuple<Type, Attribute>> typeAttributeDictionary;
-        //    Types(assembly, out typeNameList, out typeAttributeDictionary, "", filterForThisAttribute);
-        //    return typeNameList;
-        //}
+        /// <summary>
+        /// Locate the assembly assembly types to string list.
+        /// </summary>
+        /// <param name="assembly">The assembly</param>
+        /// <param name="filterForThisAttribute">The filter for this attribute setting. Default value = null.</param>
+        /// <returns>List<string/></returns>
+        public List<string> Types_AsStrList(Assembly assembly, Attribute filterForThisAttribute = null)
+        {
+            List<string> typeNameList;
+            Dictionary<string, Tuple<Type, Attribute>> typeAttributeDictionary;
+            Types(assembly, out typeNameList, out typeAttributeDictionary, "", filterForThisAttribute);
+            return typeNameList;
+        }
 
         /// <summary>
         /// Return enumeral types from the assemblies list.
@@ -235,7 +238,7 @@ namespace Lamedal_UIWinForms.lib.dotNet
         /// <returns>
         /// List<Type />
         /// </returns>
-        public IList<Type> Types_Enumerals(List<Assembly> assemblies, out IList<string> typeNames)
+        public IList<Type> Types_Enumerals(IList<Assembly> assemblies, out IList<string> typeNames)
         {
             IList<Type> result = Types_Enumerals(assemblies);
             typeNames = result.Select(x => x.Name).ToList().zUnique();

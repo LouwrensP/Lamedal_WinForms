@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using LamedalCore.zz;
+using Lamedal_UIWinForms.libUI.Interfaces;
 
 namespace Lamedal_UIWinForms.UControl.Forms
 {

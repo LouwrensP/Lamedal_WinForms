@@ -5,7 +5,9 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Reflection;
 using System.Windows.Forms;
+using LamedalCore.domain.Attributes;
 using LamedalCore.zz;
+using Lamedal_UIWinForms.lib.dotNet;
 using Lamedal_UIWinForms.libUI.WinForms.UIDesigner;
 using Lamedal_UIWinForms.zzz;
 using UIDesigner_Service = LaMedalPort.UIWindows.libUI.WinForms.UIDesigner.UIDesigner_Service;
@@ -142,7 +144,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
                     Tuple<Type, Attribute> typeAttribute;
                     if (ClassTypeDef(this, out typeAttribute))
                     {
-                        var tableDef = typeAttribute.Item2 as propertyTable_Attribute;
+                        var tableDef = typeAttribute.Item2 as BlueprintData_TableAttribute;
                         if (tableDef != null && tableDef.Caption != "") _formName.Text = tableDef.Caption;
                     }
                 }
@@ -235,9 +237,9 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             if (ClassTypeDef(this, out typeAttribute))
             {
                 //UIDesigner_Generate.Form_PanelSetup(this, Panel_Setup, Panel_Main, out _panel1, out _panel2, out _panel3, showMsg);   // Reset the panels
-                _lamedalWin.libUI.WinForms.FormGenerate.Generate_Controls(_host, typeAttribute.Item1, (propertyTable_Attribute) typeAttribute.Item2, Panel_1, Panel_2, Panel_3, null);  // Generate the controls
+                _lamedalWin.libUI.WinForms.FormGenerate.Generate_Controls(_host, typeAttribute.Item1, (BlueprintData_TableAttribute) typeAttribute.Item2, Panel_1, Panel_2, Panel_3, null);  // Generate the controls
             }
-            else "Error! No fields were marked with the propertyField_Attribute".zOk();
+            else "Error! No fields were marked with the BlueprintData_FieldAttribute".zOk();
 
             #endregion
 

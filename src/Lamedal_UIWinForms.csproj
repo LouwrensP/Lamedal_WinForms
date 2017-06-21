@@ -77,6 +77,8 @@
     <Compile Include="Events\evInput_Control_EventArgs.cs" />
     <Compile Include="Events\evStandardButtons_EventArgs.cs" />
     <Compile Include="Lamedal_WinForms_Exceptions.cs" />
+    <Compile Include="libUI\Interfaces\IForms_Setup.cs" />
+    <Compile Include="libUI\Interfaces\IForms_SetupSubForm.cs" />
     <Compile Include="libUI\libUI2_.cs" />
     <Compile Include="libUI\Win32\shell32.cs" />
     <Compile Include="libUI\Win32\shell32_FileInfo.cs" />
@@ -260,6 +262,7 @@
     </Compile>
     <Compile Include="UControl\Input\Input_Control_Designer.cs" />
     <Compile Include="UControl\Input\Input_Control_Tools.cs" />
+    <Compile Include="UControl\IO_FileWatcher.cs" />
     <Compile Include="UControl\panel\Panel_.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -318,6 +321,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UControl\_Designer\TextBox_Designer.cs" />
+    <Compile Include="zzz\ClipBoard_UI_Windows_z.cs" />
+    <Compile Include="zzz\ListBox_Shortcut.cs" />
     <Compile Include="zzz\Types_IEnumerable_T_Shortcut.cs" />
     <Compile Include="zzz\UIWindows_Shortcut.cs" />
     <Compile Include="zzz\UI_Controls_Shortcut.cs" />

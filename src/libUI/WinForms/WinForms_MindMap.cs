@@ -20,7 +20,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
         /// <param name="outputFilename">The output file</param>
         public void FileList_ToXMLFile(List<string> fileTreeList, string outputFilename)
         {
-            var xDoc_mm = _lamed.lib.XML.Mindmap.XDoc_FromNodeStringList(fileTreeList);
+            var xDoc_mm = _lamed.lib.XML.Mindmap.TreeStrList_2XmlDocument(fileTreeList);
             string XML = xDoc_mm.ToString();
             1f.zIO().RW.File_Write(outputFilename, XML,true);
         }

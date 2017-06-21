@@ -5,6 +5,7 @@ using System.Windows.Forms.Design;
 using LamedalCore.zz;
 using Lamedal_UIWinForms.libUI.Interfaces;
 using Lamedal_UIWinForms.UControl._Designer;
+using Lamedal_UIWinForms.zzz;
 
 namespace Lamedal_UIWinForms.UControl
 {
