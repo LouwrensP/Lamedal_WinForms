@@ -1,6 +1,6 @@
-﻿using Lamedal_UIWinForms.UControl.button;
+﻿using Lamedal_UIWinForms.domain.Enumerals;
+using Lamedal_UIWinForms.UControl.button;
 using Lamedal_UIWinForms.UControl.form1;
-using Lamedal_UIWinForms.Enumerals;
 
 namespace Lamedal_UIWinForms.UControl.Forms.Dialog
 {
@@ -50,12 +50,12 @@ namespace Lamedal_UIWinForms.UControl.Forms.Dialog
             this.formControls_1.Controls_Tooltips = false;
             this.formControls_1.Form_ContextMenuStrip = null;
             this.formControls_1.Form_Name = this;
-            this.formControls_1.Form_Size = enFormSize.Manual;
+            this.formControls_1.Form_Size = enForm_Size.Manual;
             this.formControls_1.Form_StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.formControls_1.Form_Text = "Class Dialog";
             this.formControls_1.Form_TopMost = false;
             this.formControls_1.Panel_Main = this.panel1;
-            this.formControls_1.Panel_Setup = enFormPanels.TwoPanels;
+            this.formControls_1.Panel_Setup = enForm_Panels.TwoPanels;
             this.formControls_1.Reset = false;
             // 
             // panel1

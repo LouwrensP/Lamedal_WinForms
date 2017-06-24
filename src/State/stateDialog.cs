@@ -1,6 +1,6 @@
 ﻿using LamedalCore.domain.Attributes;
 using LamedalCore.domain.Enumerals;
-using Lamedal_UIWinForms.Enumerals;
+using Lamedal_UIWinForms.domain.Enumerals;
 
 namespace Lamedal_UIWinForms.State
 {
@@ -13,18 +13,18 @@ namespace Lamedal_UIWinForms.State
         /// <summary>
         /// The filter type
         /// </summary>
-        public readonly enIOFileType FilterType;
+        public readonly enDialog_FileIOType FilterType;
         /// <summary>
         /// The dialog type
         /// </summary>
-        public readonly enFileDialogType DialogType;
+        public readonly enDialog_FileIO DialogType;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="stateDialog"/> class.
         /// </summary>
         /// <param name="dialogType">Type of the dialog.</param>
         /// <param name="filterType">Type of the filter.</param>
-        public stateDialog(enFileDialogType dialogType = enFileDialogType.FileOpen, enIOFileType filterType = enIOFileType.All)
+        public stateDialog(enDialog_FileIO dialogType = enDialog_FileIO.FileOpen, enDialog_FileIOType filterType = enDialog_FileIOType.All)
         {
             DialogType = dialogType;
             FilterType = filterType;

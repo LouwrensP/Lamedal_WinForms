@@ -5,7 +5,7 @@ using System.ComponentModel.Design;
 using System.Drawing;
 using System.Windows.Forms;
 using LamedalCore.zz;
-using Lamedal_UIWinForms.Enumerals;
+using Lamedal_UIWinForms.domain.Enumerals;
 using Lamedal_UIWinForms.libUI.WinForms.UIDesigner;
 using Lamedal_UIWinForms.zzz;
 
@@ -122,7 +122,7 @@ namespace Lamedal_UIWinForms.UControl.form1
 
         [Category("\tLayout")]
         [Description("Form Size")]
-        public enFormSize Form_Size
+        public enForm_Size Form_Size
         {
             get { return _FormSize; }
             set
@@ -131,7 +131,7 @@ namespace Lamedal_UIWinForms.UControl.form1
                 Setup_FormSize();
             }
         }
-        private enFormSize _FormSize = enFormSize.Manual;
+        private enForm_Size _FormSize = enForm_Size.Manual;
 
         #endregion
 
@@ -191,7 +191,7 @@ namespace Lamedal_UIWinForms.UControl.form1
         private void Setup_FormSize()
         {
             if (_Form_Startup) return;   // Prevent actions during construction
-            if (Form_Size == enFormSize.Manual) return;
+            if (Form_Size == enForm_Size.Manual) return;
             if (_formName == null) return;
 
             UIDesigner_Generate.Form_Size(this, Form_Size);

@@ -1,6 +1,8 @@
-﻿namespace Lamedal_UIWinForms.Enumerals
+﻿using LamedalCore.domain.Attributes;
+
+namespace Lamedal_UIWinForms.domain.Enumerals
 {
-    public enum enFormSize
+    public enum enForm_Size
     {
         [enumValue_(150)]
         Tiny,

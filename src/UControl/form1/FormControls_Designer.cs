@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
-using Lamedal_UIWinForms.Enumerals;
+using Lamedal_UIWinForms.domain.Enumerals;
 using LaMedalPort.UIWindows.libUI.WinForms.UIDesigner;
 
 namespace Lamedal_UIWinForms.UControl.form1
@@ -74,7 +74,7 @@ namespace Lamedal_UIWinForms.UControl.form1
             get { return _form.Panel_Main; }
         }
 
-        public enFormPanels Panel_Setup
+        public enForm_Panels Panel_Setup
         {
             get { return _form.Panel_Setup; }
             set

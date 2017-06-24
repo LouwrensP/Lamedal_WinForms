@@ -1,4 +1,4 @@
-﻿using Lamedal_UIWinForms.Enumerals;
+﻿using Lamedal_UIWinForms.domain.Enumerals;
 
 namespace Lamedal_UIWinForms.UControl._Designer
 {
@@ -8,12 +8,12 @@ namespace Lamedal_UIWinForms.UControl._Designer
         /// <summary>
         /// Gets or sets the size of the part.
         /// </summary>
-        enPart_Size PartSize { get; set; }
+        enControl_PartSize PartSize { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the part.
         /// </summary>
-        enPart_Type PartType { get; set; }
+        enControl_PartType PartType { get; set; }
 
         /// <summary>
         /// Gets or sets the part summary.

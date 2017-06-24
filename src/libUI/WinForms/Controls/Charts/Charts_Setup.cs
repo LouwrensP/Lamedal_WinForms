@@ -2,8 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using Lamedal_UIWinForms.Enumerals;
-using Lamedal_UIWinForms.Events;
+using Lamedal_UIWinForms.domain.Enumerals;
+using Lamedal_UIWinForms.domain.Events;
 using Lamedal_UIWinForms.State;
 
 namespace Lamedal_UIWinForms.libUI.WinForms.Controls.Charts
@@ -15,14 +15,14 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Controls.Charts
 
         private readonly Charts_Mouse _mouse = Lamedal_WinForms.Instance.libUI.WinForms.Controls.Charts.Mouse;
 
-        private event evChartHitInfo _chartClickEvent;    // Event with all relevent information
+        private event onChart_HitInfo _chartClickEvent;    // Event with all relevent information
 
         /// <summary>Setups the chart type.</summary>
         /// <param name="chart">The chart</param>
         /// <param name="chartType">The series chart type</param>
-        /// <param name="evChartHitInfo">The chart click event.</param>
+        /// <param name="onChartHitInfo">The chart click event.</param>
         /// <param name="enable3D">Enable3 d indicator. Default value = false.</param>
-        public void Chart_Setup(Chart chart, SeriesChartType chartType, evChartHitInfo evChartHitInfo = null, bool enable3D = false)
+        public void Chart_Setup(Chart chart, SeriesChartType chartType, onChart_HitInfo onChartHitInfo = null, bool enable3D = false)
         {
             chart.ChartAreas[0].Area3DStyle.Enable3D = enable3D;
             var series = chart.Series[0];
@@ -40,10 +40,10 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Controls.Charts
             Chart_Labels(series);
 
             // Events
-            if (evChartHitInfo != null)
+            if (onChartHitInfo != null)
             {
-                _chartClickEvent -= evChartHitInfo;
-                _chartClickEvent += evChartHitInfo;
+                _chartClickEvent -= onChartHitInfo;
+                _chartClickEvent += onChartHitInfo;
             }
 
             chart.MouseMove -= Event_MouseMove;
@@ -143,9 +143,9 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Controls.Charts
         private void Event_MouseMove(object sender, MouseEventArgs e)
         {
             // Get chart and clickPoint
-            evChartHitInfo_EventArgs chartInfo;
+            onChart_HitInfoEventArgs chartInfo;
             bool chartHit = _mouse.Mouse_HitPoint(sender, e, out chartInfo);
-            if (_chartClickEvent != null) _chartClickEvent(chartInfo, enChartEventType.Mouse_Move);
+            if (_chartClickEvent != null) _chartClickEvent(chartInfo, enControl_ChartEvent.Mouse_Move);
 
             Chart chart = chartInfo.Chart;
 
@@ -171,9 +171,9 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Controls.Charts
         private void Event_MouseDown(object sender, MouseEventArgs e)
         {
             // Call Hit Test Method
-            evChartHitInfo_EventArgs chartInfo;
+            onChart_HitInfoEventArgs chartInfo;
             bool chartHit = _mouse.Mouse_HitPoint(sender, e, out chartInfo, explode: true);
-            if (_chartClickEvent != null) _chartClickEvent(chartInfo, enChartEventType.Mouse_Down);
+            if (_chartClickEvent != null) _chartClickEvent(chartInfo, enControl_ChartEvent.Mouse_Down);
 
             if (chartHit == false) return;
             if (_mouse.Mouse_IsOnChartElement(chartInfo.hitResult.ChartElementType) == false) return; // Check chart type

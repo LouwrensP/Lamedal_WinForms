@@ -1,9 +1,9 @@
-﻿using Lamedal_UIWinForms.UControl.button;
+﻿using Lamedal_UIWinForms.domain.Enumerals;
+using Lamedal_UIWinForms.domain.Events;
+using Lamedal_UIWinForms.UControl.button;
 using Lamedal_UIWinForms.UControl.Input;
 using Lamedal_UIWinForms.UControl.panel;
 using Lamedal_UIWinForms.UControl._Designer;
-using Lamedal_UIWinForms.Enumerals;
-using Lamedal_UIWinForms.Events;
 
 namespace Lamedal_UIWinForms.UControl.form1.FormCreator
 {
@@ -237,7 +237,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             this.input_Panel1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.input_Panel1.Action_AutoSave = false;
             this.input_Panel1.Action_Button = true;
-            this.input_Panel1.Action_Custom = enInputControl_CustomAction.None;
+            this.input_Panel1.Action_Custom = enControl_InputCustomAction.None;
             this.input_Panel1.Action_EnterButton = null;
             this.input_Panel1.Action_Text = "..";
             this.input_Panel1.Action_Width = 30;
@@ -250,7 +250,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             this.input_Panel1.Border_Width = 2;
             this.input_Panel1.CausesValidation = false;
             this.input_Panel1.Combo_DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.input_Panel1.ControlType = enInputControl_Type.Edit;
+            this.input_Panel1.ControlType = enControl_InputType.Edit;
             this.input_Panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.input_Panel1.Edit_Mask = null;
             this.input_Panel1.Edit_PasswordChar = '\0';
@@ -284,7 +284,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             this.input_Panel1.ValueSet_Control = null;
             this.input_Panel1.VisibleSet_Control = null;
             this.input_Panel1.VisibleSet_Index = 1;
-            this.input_Panel1.Event_OnActionButtonClick += new System.EventHandler<evInput_Control_EventArgs>(this.input_Panel1_Event_OnActionButtonClick);
+            this.input_Panel1.Event_OnActionButtonClick += new System.EventHandler<onInputControl_EventArgs>(this.input_Panel1_Event_OnActionButtonClick);
             // 
             // ClassGenerator_Form
             // 

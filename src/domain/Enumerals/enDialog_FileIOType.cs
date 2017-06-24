@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace Lamedal_UIWinForms.Enumerals
+namespace Lamedal_UIWinForms.domain.Enumerals
 {
     /// <summary>
     /// IO file types
     /// </summary>
     [Flags]
-    public enum enIOFileType
+    public enum enDialog_FileIOType
     {
         /// <summary>
         /// All file types

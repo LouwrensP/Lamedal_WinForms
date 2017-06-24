@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using Lamedal_UIWinForms.Enumerals;
+using Lamedal_UIWinForms.domain.Enumerals;
 
 namespace Lamedal_UIWinForms.zzz
 {
@@ -37,8 +37,8 @@ namespace Lamedal_UIWinForms.zzz
         /// <param name="filterType">Type of the filter.</param>
         /// <param name="dialogType">Type of the dialog.</param>
         /// <returns></returns>
-        public static void zFile_Dialog_Button(this Button button, enIOFileType filterType = enIOFileType.All,
-            enFileDialogType dialogType = enFileDialogType.FileOpen)
+        public static void zFile_Dialog_Button(this Button button, enDialog_FileIOType filterType = enDialog_FileIOType.All,
+            enDialog_FileIO dialogType = enDialog_FileIO.FileOpen)
         {
             Lamedal_WinForms.Instance.libUI.WinForms.Dialog_Simple.File_Dialog_Button(button, filterType, dialogType);
         }
@@ -53,8 +53,8 @@ namespace Lamedal_UIWinForms.zzz
         /// <param name="updateButton">if set to <c>true</c> [update button].</param>
         /// <returns></returns>
         public static bool zFile_Dialog_Button_Click(this Button button, out string selectedFile,
-            enIOFileType filterType = enIOFileType.All,
-            enFileDialogType dialogType = enFileDialogType.FileOpen, bool updateButton = true)
+            enDialog_FileIOType filterType = enDialog_FileIOType.All,
+            enDialog_FileIO dialogType = enDialog_FileIO.FileOpen, bool updateButton = true)
         {
             return Lamedal_WinForms.Instance.libUI.WinForms.Dialog_Simple.File_Dialog_Button_Click(button, out selectedFile, filterType, dialogType, updateButton);
         }
@@ -179,8 +179,8 @@ namespace Lamedal_UIWinForms.zzz
         /// <param name="filter">The filter.</param>
         /// <returns></returns>
         public bool File_Dialog(out string selectedFile,
-            enFileDialogType dialogType = enFileDialogType.FileOpen,
-            enIOFileType filterType = enIOFileType.All, string title = "", string filter = "")
+            enDialog_FileIO dialogType = enDialog_FileIO.FileOpen,
+            enDialog_FileIOType filterType = enDialog_FileIOType.All, string title = "", string filter = "")
         {
             return Lamedal_WinForms.Instance.libUI.WinForms.Dialog_Simple.File_Dialog(_path, out selectedFile, dialogType, filterType, title, filter);
         }
@@ -193,7 +193,7 @@ namespace Lamedal_UIWinForms.zzz
         /// <param name="filter">The filter.</param>
         /// <param name="filterType">Type of the filter.</param>
         /// <returns></returns>
-        public bool File_OpenDialog(out string selectedFile, string title = "Open File", string filter = "", enIOFileType filterType = enIOFileType.All)
+        public bool File_OpenDialog(out string selectedFile, string title = "Open File", string filter = "", enDialog_FileIOType filterType = enDialog_FileIOType.All)
         {
             return Lamedal_WinForms.Instance.libUI.WinForms.Dialog_Simple.File_OpenDialog(_path, out selectedFile, title: title, filter: filter, filterType: filterType);
         }
@@ -207,7 +207,7 @@ namespace Lamedal_UIWinForms.zzz
         /// <param name="filter">The filter.</param>
         /// <returns></returns>
         public bool File_SaveDialog(out string selectedFile,
-            enIOFileType filterType = enIOFileType.All, string title = "Save File", string filter = "")
+            enDialog_FileIOType filterType = enDialog_FileIOType.All, string title = "Save File", string filter = "")
         {
             return Lamedal_WinForms.Instance.libUI.WinForms.Dialog_Simple.File_SaveDialog(_path, out selectedFile, filterType, title, filter);
         }

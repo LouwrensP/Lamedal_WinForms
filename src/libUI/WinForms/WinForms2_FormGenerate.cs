@@ -8,8 +8,8 @@ using System.Windows.Forms;
 using LamedalCore;
 using LamedalCore.domain.Attributes;
 using LamedalCore.zz;
-using Lamedal_UIWinForms.Enumerals;
-using Lamedal_UIWinForms.Events;
+using Lamedal_UIWinForms.domain.Enumerals;
+using Lamedal_UIWinForms.domain.Events;
 using Lamedal_UIWinForms.lib.dotNet;
 using Lamedal_UIWinForms.libUI.Interfaces;
 using Lamedal_UIWinForms.libUI.WinForms.UIDesigner;
@@ -128,7 +128,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
         /// </summary>
         /// <param name="e">The input event arguments control</param>
         /// <param name="Object">The object</param>
-        public void Form_ToObject(evInput_Control_EventArgs e, IObjectModel Object)
+        public void Form_ToObject(onInputControl_EventArgs e, IObjectModel Object)
         {
             // Value on the form has changed -> update the object
             Input_Control input = e.Control_;
@@ -152,7 +152,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
         /// <param name="panel3">The panel3 setting. Default value = null.</param>
         /// <param name="onValueChange">The on valueue change setting. Default value = null.</param>
         /// <returns>The height of the form should be</returns>
-        public int Generate_Controls(IDesignerHost designer, Type classType, BlueprintData_TableAttribute classAttribute, Panel panel1, Panel panel2 = null, Panel panel3 = null, EventHandler<evInput_Control_EventArgs> onValueChange = null)
+        public int Generate_Controls(IDesignerHost designer, Type classType, BlueprintData_TableAttribute classAttribute, Panel panel1, Panel panel2 = null, Panel panel3 = null, EventHandler<onInputControl_EventArgs> onValueChange = null)
         {
             Panel panel = null;
             if (panel1 == null)
@@ -230,7 +230,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             return 0;
         }
 
-        public Form Form_Generate(object classObject, EventHandler<evInput_Control_EventArgs> onValueChange = null, enFormPanels panels = enFormPanels.OnePanel)
+        public Form Form_Generate(object classObject, EventHandler<onInputControl_EventArgs> onValueChange = null, enForm_Panels panels = enForm_Panels.OnePanel)
         {
             var model = classObject as IObjectModel;
             return Form_Generate(model, onValueChange: onValueChange, panels: panels);
@@ -241,24 +241,24 @@ namespace Lamedal_UIWinForms.libUI.WinForms
         /// <param name="onValueChange">The on valueue change setting. Default value = null.</param>
         /// <param name="panels">The panels setting. Default value = OnePanel.</param>
         /// <returns>Form</returns>
-        public Form Form_Generate(IObjectModel classObject, EventHandler<evInput_Control_EventArgs> onValueChange = null, enFormPanels panels = enFormPanels.OnePanel)
+        public Form Form_Generate(IObjectModel classObject, EventHandler<onInputControl_EventArgs> onValueChange = null, enForm_Panels panels = enForm_Panels.OnePanel)
         {
             BlueprintData_TableAttribute attribute;
             LamedalCore_.Instance.Types.Class.ClassAttributes.Find_Class(classObject.GetType(), out attribute);
-            if (attribute != null) panels = (enFormPanels)attribute.TotalPanels;
+            if (attribute != null) panels = (enForm_Panels)attribute.TotalPanels;
 
 
-            if (panels == enFormPanels.OnePanel)   // Create form with 1 panel
+            if (panels == enForm_Panels.OnePanel)   // Create form with 1 panel
             {
                 var frmDialog1 = new Form_ClassDialog1();
                 if (Generate_Controls(frmDialog1, classObject, frmDialog1.panel2, onValueChange: onValueChange)) return frmDialog1;
             }
-            if (panels == enFormPanels.TwoPanels)  // Create form with 2 panels
+            if (panels == enForm_Panels.TwoPanels)  // Create form with 2 panels
             {
                 var frmDialog2 = new Form_ClassDialog2();
                 if (Generate_Controls(frmDialog2, classObject, frmDialog2.panel2, frmDialog2.panel3, onValueChange: onValueChange)) return frmDialog2;
             }
-            if (panels == enFormPanels.TreePanels)   // Create form with 3 panels
+            if (panels == enForm_Panels.TreePanels)   // Create form with 3 panels
             {
                 var frmDialog3 = new Form_ClassDialog3();
                 if (Generate_Controls(frmDialog3, classObject, frmDialog3.panel2, frmDialog3.panel3, frmDialog3.panel4, onValueChange)) return frmDialog3;
@@ -275,7 +275,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
         /// <param name="panel3">The panel3 setting. Default value = null.</param>
         /// <param name="onValueChange">The on valueue change setting. Default value = null.</param>
         /// <returns>bool</returns>
-        public bool Generate_Controls(Form form, IObjectModel classObject, Panel panel1, Panel panel2 = null, Panel panel3 = null,EventHandler<evInput_Control_EventArgs> onValueChange = null)
+        public bool Generate_Controls(Form form, IObjectModel classObject, Panel panel1, Panel panel2 = null, Panel panel3 = null,EventHandler<onInputControl_EventArgs> onValueChange = null)
         {
             var type = classObject.GetType();
             BlueprintData_TableAttribute attribute;
@@ -392,7 +392,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             }
 
         }
-        private void OnValueChangeEvent(object sender, evInput_Control_EventArgs e)
+        private void OnValueChangeEvent(object sender, onInputControl_EventArgs e)
         {
             // Update the object from when the form values change
             Form frm = e.Control_.ParentForm;

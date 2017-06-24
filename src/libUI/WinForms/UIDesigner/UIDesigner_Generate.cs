@@ -5,9 +5,10 @@ using System.ComponentModel.Design;
 using System.Linq;
 using System.Windows.Forms;
 using LamedalCore;
+using LamedalCore.domain.Attributes;
 using LamedalCore.zz;
-using Lamedal_UIWinForms.Enumerals;
-using Lamedal_UIWinForms.Events;
+using Lamedal_UIWinForms.domain.Enumerals;
+using Lamedal_UIWinForms.domain.Events;
 using Lamedal_UIWinForms.UControl.Input;
 using Lamedal_UIWinForms.zzz;
 
@@ -51,12 +52,12 @@ namespace Lamedal_UIWinForms.libUI.WinForms.UIDesigner
         /// <param name="panel2">Return the panel to</param>
         /// <param name="panel3">Return the panel3</param>
         /// <param name="showMsg">if set to <c>true</c> [show MSG].</param>
-        public static void Form_PanelSetup(Component designer, enFormPanels panels, Panel panelMain, 
+        public static void Form_PanelSetup(Component designer, enForm_Panels panels, Panel panelMain, 
             out Panel panel1, out Panel panel2, out Panel panel3, bool showMsg = true)
         {
             panel1 = null; panel2 = null; panel3 = null;
 
-            if (panels == enFormPanels.Custom) return;  // Do nothing
+            if (panels == enForm_Panels.Custom) return;  // Do nothing
 
             if (showMsg)
             {
@@ -92,19 +93,19 @@ namespace Lamedal_UIWinForms.libUI.WinForms.UIDesigner
             Form_PanelClear(designer, panelMain, false);
 
             // Build the new panels
-            if (panels == enFormPanels.OnePanel) panel1 = Create_Panel(host, panelMain, DockStyle.Fill);
-            else if (panels == enFormPanels.TwoPanels)
+            if (panels == enForm_Panels.OnePanel) panel1 = Create_Panel(host, panelMain, DockStyle.Fill);
+            else if (panels == enForm_Panels.TwoPanels)
             {
                 panel1 = Create_Panel(host, panelMain, DockStyle.Left);
                 panel2 = Create_Panel(host, panelMain, DockStyle.Fill);
             }
-            else if (panels == enFormPanels.TreePanels)
+            else if (panels == enForm_Panels.TreePanels)
             {
                 panel1 = Create_Panel(host, panelMain, DockStyle.Left);
                 panel2 = Create_Panel(host, panelMain, DockStyle.Left);
                 panel3 = Create_Panel(host, panelMain, DockStyle.Fill);
             }
-            else if (panels == enFormPanels.Custom)
+            else if (panels == enForm_Panels.Custom)
             {
                 // Do Nothing
             }
@@ -116,7 +117,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms.UIDesigner
         /// <param name="designer">The designer.</param>
         /// <param name="formSize">Size of the form.</param>
         /// <param name="panelMain">The panel main.</param>
-        public static void Form_Size(Component designer, enFormSize formSize, Panel panelMain = null)
+        public static void Form_Size(Component designer, enForm_Size formSize, Panel panelMain = null)
         {
             IDesignerHost host = UIDesigner_Service.IDesignerHost_FromComponent(designer);
             Form form = null;
@@ -162,7 +163,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms.UIDesigner
         /// </returns>
         public static Input_Control Create_Input(IDesignerHost host, Panel parentPanel,
                     string fieldName = "FieldName1", string fieldCaption = "Caption1", Type fieldType = null, string fieldValue = "",
-                    EventHandler<evInput_Control_EventArgs> OnInputValueChangeEvent = null)
+                    EventHandler<onInputControl_EventArgs> OnInputValueChangeEvent = null)
         {
             if (fieldType == null) fieldType = typeof(string);
 
@@ -179,12 +180,12 @@ namespace Lamedal_UIWinForms.libUI.WinForms.UIDesigner
             input.Field_Caption = fieldCaption;
             input.Field_Value = fieldValue;
 
-            if (fieldType == typeof(bool)) input.ControlType = enInputControl_Type.Checkbox1;   // Checkbox
-            if (fieldType == typeof(DateTime)) input.ControlType = enInputControl_Type.DateTime;  // DateTime
+            if (fieldType == typeof(bool)) input.ControlType = enControl_InputType.Checkbox1;   // Checkbox
+            if (fieldType == typeof(DateTime)) input.ControlType = enControl_InputType.DateTime;  // DateTime
             if (LamedalCore_.Instance.Types.Enum.IsEnumerable(fieldType))
             {
                 // ComboBox
-                input.ControlType = enInputControl_Type.Combobox;
+                input.ControlType = enControl_InputType.Combobox;
                 fieldType.zEnum_To_IList(input.Ctrl_Combobox.Items);
                 input.Ctrl_Combobox.Text = fieldValue;
             }

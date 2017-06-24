@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-using Lamedal_UIWinForms.Events;
+using Lamedal_UIWinForms.domain.Events;
 
 namespace Lamedal_UIWinForms.UControl.form1.FormCreator
 {

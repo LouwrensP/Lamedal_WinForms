@@ -1,6 +1,6 @@
-﻿namespace Lamedal_UIWinForms.Enumerals
+﻿namespace Lamedal_UIWinForms.domain.Enumerals
 {
-    public enum enStandardButtons
+    public enum enControl_StandardButtons
     {
         Ok, 
         Cancel, 

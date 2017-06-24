@@ -1,7 +1,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Lamedal_UIWinForms.Enumerals;
+using Lamedal_UIWinForms.domain.Enumerals;
 
 namespace Lamedal_UIWinForms.UControl.Input
 {
@@ -14,11 +14,11 @@ namespace Lamedal_UIWinForms.UControl.Input
         /// Determines whether the active type is a checkbox.
         /// </summary>
         /// <returns></returns>
-        public static bool IsCheckbox(enInputControl_Type type)
+        public static bool IsCheckbox(enControl_InputType type)
         {
-            var isCheckbox = (type == enInputControl_Type.Checkbox1 ||
-                              type == enInputControl_Type.Checkbox2 ||
-                              type == enInputControl_Type.Checkbox3);
+            var isCheckbox = (type == enControl_InputType.Checkbox1 ||
+                              type == enControl_InputType.Checkbox2 ||
+                              type == enControl_InputType.Checkbox3);
             return isCheckbox;
         }
 
@@ -26,11 +26,11 @@ namespace Lamedal_UIWinForms.UControl.Input
         /// Determines whether the active type is a checkbox.
         /// </summary>
         /// <returns></returns>
-        public static bool IsRadioButton(enInputControl_Type type)
+        public static bool IsRadioButton(enControl_InputType type)
         {
-            var isRadioButton = (type == enInputControl_Type.RadioButton2 ||
-                                 type == enInputControl_Type.RadioButton3 ||
-                                 type == enInputControl_Type.RadioButton4);
+            var isRadioButton = (type == enControl_InputType.RadioButton2 ||
+                                 type == enControl_InputType.RadioButton3 ||
+                                 type == enControl_InputType.RadioButton4);
             return isRadioButton;
         }
 
@@ -39,11 +39,11 @@ namespace Lamedal_UIWinForms.UControl.Input
         /// </summary>
         /// <param name="controlType">Type of the control.</param>
         /// <returns></returns>
-        public static bool IsButton(enInputControl_Type controlType)
+        public static bool IsButton(enControl_InputType controlType)
         {
-            var isButton = (controlType == enInputControl_Type.Button1 ||
-                            controlType == enInputControl_Type.Button2 ||
-                            controlType == enInputControl_Type.Button3);
+            var isButton = (controlType == enControl_InputType.Button1 ||
+                            controlType == enControl_InputType.Button2 ||
+                            controlType == enControl_InputType.Button3);
             return isButton;
         }
 

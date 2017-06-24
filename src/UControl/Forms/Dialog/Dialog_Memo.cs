@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
-using Lamedal_UIWinForms.Enumerals;
-using Lamedal_UIWinForms.Events;
+using Lamedal_UIWinForms.domain.Enumerals;
+using Lamedal_UIWinForms.domain.Events;
 using Lamedal_UIWinForms.zzz;
 
 namespace Lamedal_UIWinForms.UControl.Forms.Dialog
@@ -20,13 +20,13 @@ namespace Lamedal_UIWinForms.UControl.Forms.Dialog
             InitializeComponent();
         }        
 
-        private void standardButtons1_Event_OnClick(object sender, evStandardButtons_EventArgs e)
+        private void standardButtons1_Event_OnClick(object sender, onStandardButtons_EventArgs e)
         {
             switch (e.Button_Type)
             {
-                case enStandardButtons.Ok: this.DialogResult = DialogResult.OK; break;
-                case enStandardButtons.Cancel: this.DialogResult = DialogResult.Cancel; break;
-                case enStandardButtons.Copy2Clipboard: Lines.Text.zClipboard_CopyStrTo(); break;
+                case enControl_StandardButtons.Ok: this.DialogResult = DialogResult.OK; break;
+                case enControl_StandardButtons.Cancel: this.DialogResult = DialogResult.Cancel; break;
+                case enControl_StandardButtons.Copy2Clipboard: Lines.Text.zClipboard_CopyStrTo(); break;
             }
         }
 

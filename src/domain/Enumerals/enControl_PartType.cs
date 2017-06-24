@@ -1,6 +1,6 @@
-﻿namespace Lamedal_UIWinForms.Enumerals
+﻿namespace Lamedal_UIWinForms.domain.Enumerals
 {
-    public enum enPart_Type
+    public enum enControl_PartType
     {
         UnDefined, 
         Class, 

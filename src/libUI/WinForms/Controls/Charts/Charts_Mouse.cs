@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using LamedalCore.zz;
-using Lamedal_UIWinForms.Events;
+using Lamedal_UIWinForms.domain.Events;
 
 namespace Lamedal_UIWinForms.libUI.WinForms.Controls.Charts
 {
@@ -131,9 +131,9 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Controls.Charts
         /// <returns>
         /// bool
         /// </returns>
-        public bool Mouse_HitPoint(object sender, MouseEventArgs e, out evChartHitInfo_EventArgs chartInfo, bool explode = false)
+        public bool Mouse_HitPoint(object sender, MouseEventArgs e, out onChart_HitInfoEventArgs chartInfo, bool explode = false)
         {
-            chartInfo = new evChartHitInfo_EventArgs(sender as Chart, e, explode);
+            chartInfo = new onChart_HitInfoEventArgs(sender as Chart, e, explode);
             return chartInfo.HitPoint;
         }
 

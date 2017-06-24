@@ -1,6 +1,8 @@
-﻿namespace Lamedal_UIWinForms.Enumerals
+﻿using LamedalCore.domain.Attributes;
+
+namespace Lamedal_UIWinForms.domain.Enumerals
 {
-    public enum enFormPanels
+    public enum enForm_Panels
     {
         [enumValue_(260)]
         OnePanel =1,

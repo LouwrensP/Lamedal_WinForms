@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using LamedalCore.zz;
-using Lamedal_UIWinForms.Events;
+using Lamedal_UIWinForms.domain.Events;
 using Lamedal_UIWinForms.zzz;
 
 namespace Lamedal_UIWinForms.UControl.form1.FormCreator

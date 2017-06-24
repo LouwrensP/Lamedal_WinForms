@@ -1,8 +1,8 @@
-﻿using Lamedal_UIWinForms.UControl.button;
+﻿using Lamedal_UIWinForms.domain.Enumerals;
+using Lamedal_UIWinForms.UControl.button;
 using Lamedal_UIWinForms.UControl.Input;
 using Lamedal_UIWinForms.UControl.panel;
 using Lamedal_UIWinForms.UControl._Designer;
-using Lamedal_UIWinForms.Enumerals;
 
 namespace Lamedal_UIWinForms.UControl.form1.FormCreator
 {
@@ -152,7 +152,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             this.input_ControlName.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.input_ControlName.Action_AutoSave = false;
             this.input_ControlName.Action_Button = false;
-            this.input_ControlName.Action_Custom = enInputControl_CustomAction.None;
+            this.input_ControlName.Action_Custom = enControl_InputCustomAction.None;
             this.input_ControlName.Action_EnterButton = null;
             this.input_ControlName.Action_Text = "..";
             this.input_ControlName.Action_Width = 30;
@@ -165,7 +165,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             this.input_ControlName.Border_Width = 2;
             this.input_ControlName.CausesValidation = false;
             this.input_ControlName.Combo_DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.input_ControlName.ControlType = enInputControl_Type.Edit;
+            this.input_ControlName.ControlType = enControl_InputType.Edit;
             this.input_ControlName.Dock = System.Windows.Forms.DockStyle.Left;
             this.input_ControlName.Edit_Mask = null;
             this.input_ControlName.Edit_PasswordChar = '\0';
@@ -233,7 +233,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             this.input_Enum.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.input_Enum.Action_AutoSave = false;
             this.input_Enum.Action_Button = false;
-            this.input_Enum.Action_Custom = enInputControl_CustomAction.None;
+            this.input_Enum.Action_Custom = enControl_InputCustomAction.None;
             this.input_Enum.Action_EnterButton = null;
             this.input_Enum.Action_Text = "..";
             this.input_Enum.Action_Width = 30;
@@ -246,7 +246,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             this.input_Enum.Border_Width = 2;
             this.input_Enum.CausesValidation = false;
             this.input_Enum.Combo_DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.input_Enum.ControlType = enInputControl_Type.Edit;
+            this.input_Enum.ControlType = enControl_InputType.Edit;
             this.input_Enum.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.input_Enum.Edit_Mask = null;
             this.input_Enum.Edit_PasswordChar = '\0';
@@ -329,7 +329,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             this.input_DLL.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.input_DLL.Action_AutoSave = false;
             this.input_DLL.Action_Button = false;
-            this.input_DLL.Action_Custom = enInputControl_CustomAction.None;
+            this.input_DLL.Action_Custom = enControl_InputCustomAction.None;
             this.input_DLL.Action_EnterButton = null;
             this.input_DLL.Action_Text = "..";
             this.input_DLL.Action_Width = 30;
@@ -342,7 +342,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             this.input_DLL.Border_Width = 2;
             this.input_DLL.CausesValidation = false;
             this.input_DLL.Combo_DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.input_DLL.ControlType = enInputControl_Type.Edit;
+            this.input_DLL.ControlType = enControl_InputType.Edit;
             this.input_DLL.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.input_DLL.Edit_Mask = null;
             this.input_DLL.Edit_PasswordChar = '\0';

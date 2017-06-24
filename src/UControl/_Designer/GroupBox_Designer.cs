@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
-using Lamedal_UIWinForms.Enumerals;
+using Lamedal_UIWinForms.domain.Enumerals;
 using Lamedal_UIWinForms.libUI.Interfaces;
 using Lamedal_UIWinForms.UControl.panel;
 
@@ -134,7 +134,7 @@ namespace Lamedal_UIWinForms.UControl._Designer
         #endregion
 
         #region GroupBox_FileStructure_Interface
-        public enPart_Size PartSize
+        public enControl_PartSize PartSize
         {
             get
             {
@@ -148,7 +148,7 @@ namespace Lamedal_UIWinForms.UControl._Designer
             }
         }
 
-        public enPart_Type PartType
+        public enControl_PartType PartType
         {
             get
             {

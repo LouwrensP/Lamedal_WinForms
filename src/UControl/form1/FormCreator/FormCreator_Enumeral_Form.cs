@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using LamedalCore.zz;
-using Lamedal_UIWinForms.Enumerals;
+using Lamedal_UIWinForms.domain.Enumerals;
 using Lamedal_UIWinForms.lib.dotNet;
 using Lamedal_UIWinForms.UControl.Input;
 using Lamedal_UIWinForms.zzz;
@@ -67,8 +67,8 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             {
                 var inputControl = control as Input_Control;
                 var name = inputControl.Name;
-                if (inputControl.ControlType == enInputControl_Type.Combobox) input_ControlName.Field_Value = name + ".Ctrl_Combobox";
-                else if (inputControl.ControlType == enInputControl_Type.Listbox) input_ControlName.Field_Value = name + ".Ctrl_ListBox"; 
+                if (inputControl.ControlType == enControl_InputType.Combobox) input_ControlName.Field_Value = name + ".Ctrl_Combobox";
+                else if (inputControl.ControlType == enControl_InputType.Listbox) input_ControlName.Field_Value = name + ".Ctrl_ListBox"; 
                 else "Please change the control type to 'Combobox' or 'Listbox'".zOk();
             }
             Generate_Code();

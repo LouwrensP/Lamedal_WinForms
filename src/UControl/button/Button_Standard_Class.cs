@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using LamedalCore.zz;
-using Lamedal_UIWinForms.Enumerals;
+using Lamedal_UIWinForms.domain.Enumerals;
 
 namespace Lamedal_UIWinForms.UControl.button
 {
@@ -62,15 +62,15 @@ namespace Lamedal_UIWinForms.UControl.button
             }
         }
 
-        public string Text_Get(enStandardButtons button)
+        public string Text_Get(enControl_StandardButtons button)
         {
             switch (button)
             {
-                case enStandardButtons.Ok: return btnOk.Text;
-                case enStandardButtons.Cancel: return btnCancel.Text;
-                case enStandardButtons.Apply: return btnApply.Text;
-                case enStandardButtons.Help: return btnHelp.Text;
-                case enStandardButtons.Copy2Clipboard: return btnClipboard.Text;
+                case enControl_StandardButtons.Ok: return btnOk.Text;
+                case enControl_StandardButtons.Cancel: return btnCancel.Text;
+                case enControl_StandardButtons.Apply: return btnApply.Text;
+                case enControl_StandardButtons.Help: return btnHelp.Text;
+                case enControl_StandardButtons.Copy2Clipboard: return btnClipboard.Text;
                 default: "Undefined enumerable!".zException_Show(); break;
 
             }
@@ -92,15 +92,15 @@ namespace Lamedal_UIWinForms.UControl.button
         /// </summary>
         /// <param name="button">The button.</param>
         /// <returns></returns>
-        public bool Visible_Get(enStandardButtons button)
+        public bool Visible_Get(enControl_StandardButtons button)
         {
             switch (button)
             {
-                case enStandardButtons.Ok: return btnOk.Visible;
-                case enStandardButtons.Cancel: return btnCancel.Visible;
-                case enStandardButtons.Apply: return btnApply.Visible;
-                case enStandardButtons.Help: return btnHelp.Visible;
-                case enStandardButtons.Copy2Clipboard: return btnClipboard.Visible;
+                case enControl_StandardButtons.Ok: return btnOk.Visible;
+                case enControl_StandardButtons.Cancel: return btnCancel.Visible;
+                case enControl_StandardButtons.Apply: return btnApply.Visible;
+                case enControl_StandardButtons.Help: return btnHelp.Visible;
+                case enControl_StandardButtons.Copy2Clipboard: return btnClipboard.Visible;
                 default: "Undefined enumerable!".zException_Show(); break;
 
             }
@@ -112,15 +112,15 @@ namespace Lamedal_UIWinForms.UControl.button
         /// </summary>
         /// <param name="button">The button.</param>
         /// <param name="value">if set to <c>true</c> [value].</param>
-        public void Visible_Set(enStandardButtons button, bool value)
+        public void Visible_Set(enControl_StandardButtons button, bool value)
         {
             switch (button)
             {
-                case enStandardButtons.Ok: btnOk.Visible = value; break;
-                case enStandardButtons.Cancel: btnCancel.Visible = value; break;
-                case enStandardButtons.Apply: btnApply.Visible = value; break;
-                case enStandardButtons.Help: btnHelp.Visible = value; break;
-                case enStandardButtons.Copy2Clipboard: btnClipboard.Visible = value; break;
+                case enControl_StandardButtons.Ok: btnOk.Visible = value; break;
+                case enControl_StandardButtons.Cancel: btnCancel.Visible = value; break;
+                case enControl_StandardButtons.Apply: btnApply.Visible = value; break;
+                case enControl_StandardButtons.Help: btnHelp.Visible = value; break;
+                case enControl_StandardButtons.Copy2Clipboard: btnClipboard.Visible = value; break;
             }
         }
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using LamedalCore.zz;
-using Lamedal_UIWinForms.Events;
+using Lamedal_UIWinForms.domain.Events;
 
 namespace Lamedal_UIWinForms.UControl.Forms.Dialog
 {
@@ -63,7 +63,7 @@ namespace Lamedal_UIWinForms.UControl.Forms.Dialog
 
         
 
-        private void button_Standard1_Event_OnClick(object sender, evStandardButtons_EventArgs e)
+        private void button_Standard1_Event_OnClick(object sender, onStandardButtons_EventArgs e)
         {
             //if (e.Button_Type == StandardButtons.Ok) this.DialogResult = DialogResult.OK;
         }

@@ -1,7 +1,7 @@
-﻿using Lamedal_UIWinForms.UControl.button;
+﻿using Lamedal_UIWinForms.domain.Events;
+using Lamedal_UIWinForms.UControl.button;
 using Lamedal_UIWinForms.UControl.panel;
 using Lamedal_UIWinForms.UControl._Designer;
-using Lamedal_UIWinForms.Events;
 
 namespace Lamedal_UIWinForms.UControl.Forms.Dialog
 {
@@ -80,7 +80,7 @@ namespace Lamedal_UIWinForms.UControl.Forms.Dialog
             this.button_Standard1.Visible_Clipboard = false;
             this.button_Standard1.Visible_Help = false;
             this.button_Standard1.Visible_Ok = true;
-            this.button_Standard1.Event_OnClick += new System.EventHandler<evStandardButtons_EventArgs>(this.button_Standard1_Event_OnClick);
+            this.button_Standard1.Event_OnClick += new System.EventHandler<onStandardButtons_EventArgs>(this.button_Standard1_Event_OnClick);
             // 
             // panel_1
             // 

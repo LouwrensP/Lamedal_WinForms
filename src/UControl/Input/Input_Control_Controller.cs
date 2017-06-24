@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using LamedalCore.zz;
-using Lamedal_UIWinForms.Enumerals;
+using Lamedal_UIWinForms.domain.Enumerals;
 using Lamedal_UIWinForms.zzz;
 
 namespace Lamedal_UIWinForms.UControl.Input
@@ -14,7 +14,7 @@ namespace Lamedal_UIWinForms.UControl.Input
     {
         private readonly Lamedal_WinForms IamWindows = Lamedal_WinForms.Instance; // Set reference to Blueprint Windows lib
         private readonly Input_Control _inputControl;
-        private enInputControl_Type _ControlType;
+        private enControl_InputType _ControlType;
         private bool _border;
         private Color _borderColor = Color.Red;
 
@@ -147,13 +147,13 @@ namespace Lamedal_UIWinForms.UControl.Input
             Rows = rows;
             pnlBorder.Height = (rows * 20) + 15;
         }
-        public void Control_Columns(enInputControl_Width size)
+        public void Control_Columns(enControl_InputWidth size)
         {
             Control_Columns(Columns, size);
         }
-        public void Control_Columns(int columns = 2, enInputControl_Width size = enInputControl_Width.Normal)
+        public void Control_Columns(int columns = 2, enControl_InputWidth size = enControl_InputWidth.Normal)
         {
-            if (size == enInputControl_Width.Centre) columns = 2;
+            if (size == enControl_InputWidth.Centre) columns = 2;
 
             if (columns == 1)
             {
@@ -174,14 +174,14 @@ namespace Lamedal_UIWinForms.UControl.Input
                 pnlButton.Visible = true;
             }
 
-            if (size == enInputControl_Width.Normal)
+            if (size == enControl_InputWidth.Normal)
             {
                 pnlText.Dock = DockStyle.Fill;
                 pnlLabel.Size = new System.Drawing.Size(LabelWidth, 22);
                 pnlButton.Size = new System.Drawing.Size(30, 22);
                 pnlText.Size = new System.Drawing.Size(412, 22);
             }
-            if (size == enInputControl_Width.Thirds)
+            if (size == enControl_InputWidth.Thirds)
             {
                 pnlText.Dock = DockStyle.Fill;
                 pnlLabel.Size = new System.Drawing.Size(_inputControl.Width / 3 - 2, 22);
@@ -189,7 +189,7 @@ namespace Lamedal_UIWinForms.UControl.Input
                 //pnlText.Size = new System.Drawing.Size(Width / 3 - 2, 22);
 
             }
-            if (size == enInputControl_Width.Centre)
+            if (size == enControl_InputWidth.Centre)
             {
                 pnlLabel.Size = new System.Drawing.Size(_inputControl.Width / 2 - 2, 22);
                 pnlText.Dock = DockStyle.Fill;

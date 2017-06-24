@@ -1,5 +1,5 @@
-﻿using Lamedal_UIWinForms.UControl.button;
-using Lamedal_UIWinForms.Events;
+﻿using Lamedal_UIWinForms.domain.Events;
+using Lamedal_UIWinForms.UControl.button;
 
 namespace Lamedal_UIWinForms.UControl.Forms.Dialog
 {
@@ -83,7 +83,7 @@ namespace Lamedal_UIWinForms.UControl.Forms.Dialog
             this.standardButtons1.Visible_Clipboard = true;
             this.standardButtons1.Visible_Help = false;
             this.standardButtons1.Visible_Ok = true;
-            this.standardButtons1.Event_OnClick += new System.EventHandler<evStandardButtons_EventArgs>(this.standardButtons1_Event_OnClick);
+            this.standardButtons1.Event_OnClick += new System.EventHandler<onStandardButtons_EventArgs>(this.standardButtons1_Event_OnClick);
             // 
             // winDialog_Memo
             // 

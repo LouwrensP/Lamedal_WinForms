@@ -7,8 +7,8 @@ using System.Reflection;
 using System.Windows.Forms;
 using LamedalCore;
 using LamedalCore.zz;
-using Lamedal_UIWinForms.Enumerals;
-using Lamedal_UIWinForms.Events;
+using Lamedal_UIWinForms.domain.Enumerals;
+using Lamedal_UIWinForms.domain.Events;
 using Lamedal_UIWinForms.lib.dotNet;
 using Lamedal_UIWinForms.libUI.WinForms.UIDesigner;
 using Lamedal_UIWinForms.UControl.Input;
@@ -51,10 +51,10 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
             _designer = designer;
 
             // Form Size & Form Panels
-            typeof(enFormSize).zEnum_To_IList(comboBox_FormSize.Items);
+            typeof(enForm_Size).zEnum_To_IList(comboBox_FormSize.Items);
             //IamWindows.libUI.WinForms.Controls.ComboBox.SearchItem(comboBox_FormSize, designer.FormSize.ToString());
 
-            typeof(enFormPanels).zEnum_To_IList(comboBox_FormPanels.Items);
+            typeof(enForm_Panels).zEnum_To_IList(comboBox_FormPanels.Items);
             IamWindows.libUI.WinForms.Controls.ComboBox.SearchItem(comboBox_FormPanels, designer.Panel_Setup.ToString());
 
             // Panel setup
@@ -96,7 +96,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
 
             // Convert to enum and set the component
             var formPanels = comboBox_FormPanels.Text;
-            _designer.Panel_Setup = formPanels.zEnum_To_EnumValue<enFormPanels>();
+            _designer.Panel_Setup = formPanels.zEnum_To_EnumValue<enForm_Panels>();
 
             // Get the panels
             var panelName = input_Panel1.Field_Value;
@@ -129,7 +129,7 @@ namespace Lamedal_UIWinForms.UControl.form1.FormCreator
 
         }
 
-        private void input_Panel1_Event_OnActionButtonClick(object sender, evInput_Control_EventArgs e)
+        private void input_Panel1_Event_OnActionButtonClick(object sender, onInputControl_EventArgs e)
         {
             var panel = _ActiveComponent as Panel;
             if (panel == null) return;

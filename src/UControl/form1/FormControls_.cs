@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using LamedalCore.zz;
-using Lamedal_UIWinForms.Enumerals;
+using Lamedal_UIWinForms.domain.Enumerals;
 using Lamedal_UIWinForms.libUI.WinForms.UIDesigner;
 using Lamedal_UIWinForms.UControl.button;
 using Lamedal_UIWinForms.zzz;
@@ -139,7 +139,7 @@ namespace Lamedal_UIWinForms.UControl.form1
 
         [Category("\tControls")]
         [Description("Set the form panels.")]
-        public enFormPanels Panel_Setup
+        public enForm_Panels Panel_Setup
         {
             get { return _panelSetup; }
             set
@@ -148,7 +148,7 @@ namespace Lamedal_UIWinForms.UControl.form1
                 Setup_Panels();
             }
         }
-        private enFormPanels _panelSetup = enFormPanels.Custom;
+        private enForm_Panels _panelSetup = enForm_Panels.Custom;
 
         #endregion
 

@@ -1,9 +1,9 @@
-﻿namespace Lamedal_UIWinForms.Enumerals
+﻿namespace Lamedal_UIWinForms.domain.Enumerals
 {
     /// <summary>
     /// File dialog types
     /// </summary>
-    public enum enFileDialogType
+    public enum enDialog_FileIO
     {
         /// <summary>
         /// The file open dialog

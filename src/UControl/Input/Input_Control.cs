@@ -4,8 +4,8 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using LamedalCore.zz;
-using Lamedal_UIWinForms.Enumerals;
-using Lamedal_UIWinForms.Events;
+using Lamedal_UIWinForms.domain.Enumerals;
+using Lamedal_UIWinForms.domain.Events;
 using Lamedal_UIWinForms.libUI.Interfaces;
 using Lamedal_UIWinForms.zzz;
 
@@ -25,7 +25,7 @@ namespace Lamedal_UIWinForms.UControl.Input
             // Set reference to Blueprint Windows lib
 
         private readonly Input_Control_Controller _controller;
-        private enInputControl_Type _ControlType = enInputControl_Type.Edit;
+        private enControl_InputType _ControlType = enControl_InputType.Edit;
         private Button _actionEnterButton;
         private string _Edit_Mask;
         private bool _control_Sync;
@@ -123,7 +123,7 @@ namespace Lamedal_UIWinForms.UControl.Input
             if (_Action_AutoSave)
             {
                 Control ctrl;
-                evInput_Control_EventArgs args;
+                onInputControl_EventArgs args;
                 _controller.Value_Get(out ctrl, out args);
                 // Todo [1d] (New) Redo the property save mechanism
                 //this.ParentForm.zProperties_LoadUser(ctrl);
@@ -271,13 +271,13 @@ namespace Lamedal_UIWinForms.UControl.Input
         [Description("The Control Type")]
         [NotifyParentProperty(true)]                                               
         [RefreshProperties(RefreshProperties.All)]
-        public enInputControl_Type ControlType
+        public enControl_InputType ControlType
         {
             get { return _ControlType; }
             set
             {
                 _ControlType = value;
-                if (value == enInputControl_Type.Listbox) Height = 20 * 3 + 13;
+                if (value == enControl_InputType.Listbox) Height = 20 * 3 + 13;
                 else Height = 35;
                 _controller.Control_Type(value, 1, Action_Button);
                 Sync(value);
@@ -324,7 +324,7 @@ namespace Lamedal_UIWinForms.UControl.Input
             get
             {
                 Control ctrl;
-                evInput_Control_EventArgs args;
+                onInputControl_EventArgs args;
                 _controller.Value_Get(out ctrl, out args);
                 return ctrl;
             }
@@ -527,20 +527,20 @@ namespace Lamedal_UIWinForms.UControl.Input
             set
             {
                 _Edit_Mask = value;
-                Sync(enInputControl_Type.Edit_Masked);
+                Sync(enControl_InputType.Edit_Masked);
             }
         }
 
-        private void Sync(enInputControl_Type controlType)
+        private void Sync(enControl_InputType controlType)
         {
             if (ControlType == controlType)
             {
                 switch (controlType)
                 {
-                    case enInputControl_Type.Edit_Masked:
+                    case enControl_InputType.Edit_Masked:
                         _controller.txtValueMasked.Mask = _Edit_Mask;
                         break;
-                    case enInputControl_Type.Combobox:
+                    case enControl_InputType.Combobox:
                         _controller.cboValue.DropDownStyle = _DropDownStyle;
                         break;
                 }
@@ -563,7 +563,7 @@ namespace Lamedal_UIWinForms.UControl.Input
             set
             {
                 _DropDownStyle = value;
-                Sync(enInputControl_Type.Combobox);
+                Sync(enControl_InputType.Combobox);
             }
         }
 
@@ -659,7 +659,7 @@ namespace Lamedal_UIWinForms.UControl.Input
         [Description("Set the Custom action")]
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.All)]
-        public enInputControl_CustomAction Action_Custom
+        public enControl_InputCustomAction Action_Custom
         {
             get { return _Action_Custom; }
             set
@@ -667,17 +667,17 @@ namespace Lamedal_UIWinForms.UControl.Input
                 _Action_Custom = value;
                 switch (value)
                 {
-                    case enInputControl_CustomAction.None: break;   // Do Nothing
+                    case enControl_InputCustomAction.None: break;   // Do Nothing
                     // Setup the FileOpen Action
-                    case enInputControl_CustomAction.File_Open_Button:
-                        ControlType = enInputControl_Type.Button1;
+                    case enControl_InputCustomAction.File_Open_Button:
+                        ControlType = enControl_InputType.Button1;
                         Field_Caption = "Click to select the file";
                         Action_AutoSave = true;
                         break;
 
                     // Setup the FileOpen Action
-                    case enInputControl_CustomAction.File_Open_Edit:
-                        ControlType = enInputControl_Type.Edit;
+                    case enControl_InputCustomAction.File_Open_Edit:
+                        ControlType = enControl_InputType.Edit;
                         _Control_Action = true;
                         if (Field_Caption == "FieldName") Field_Caption = "Path:";
                         Action_AutoSave = true;
@@ -687,7 +687,7 @@ namespace Lamedal_UIWinForms.UControl.Input
                 }
             }
         }
-        private enInputControl_CustomAction _Action_Custom = enInputControl_CustomAction.None;
+        private enControl_InputCustomAction _Action_Custom = enControl_InputCustomAction.None;
 
         #endregion
         #region Path
@@ -766,15 +766,15 @@ namespace Lamedal_UIWinForms.UControl.Input
         #region Events
         [Category("Blueprint")]
         [Description("Fire when key is pressed")]
-        public event EventHandler<evInput_Control_EventArgs> Event_OnValueChange;
+        public event EventHandler<onInputControl_EventArgs> Event_OnValueChange;
 
         [Category("Blueprint")]
         [Description("Fire when enter is clicked in textbox and a button is assigned")]
-        public event EventHandler<evInput_Control_EventArgs> Event_OnEnterPressed;
+        public event EventHandler<onInputControl_EventArgs> Event_OnEnterPressed;
 
         [Category("Blueprint")]
         [Description("Fire when the action button is clicked")]
-        public event EventHandler<evInput_Control_EventArgs> Event_OnActionButtonClick;
+        public event EventHandler<onInputControl_EventArgs> Event_OnActionButtonClick;
         private void HookupEvents()
         {
             Ctrl_Edit.Click += Click_Test;
@@ -790,15 +790,15 @@ namespace Lamedal_UIWinForms.UControl.Input
             this.InvokeOnClick(this,e);
         }
 
-        private void Event_OnButtonClick_Handle(object sender, evInput_Control_EventArgs e)
+        private void Event_OnButtonClick_Handle(object sender, onInputControl_EventArgs e)
         {
             // Setup default event
-            EventHandler<evInput_Control_EventArgs> hookEvent = Event_OnActionButtonClick;
+            EventHandler<onInputControl_EventArgs> hookEvent = Event_OnActionButtonClick;
             var isButton = Input_Control_Tools.IsButton(_ControlType);
             if (isButton && hookEvent == null) hookEvent = Event_OnValueChange;
 
             // File Open Action Button
-            if (Action_Custom== enInputControl_CustomAction.File_Open_Button)
+            if (Action_Custom== enControl_InputCustomAction.File_Open_Button)
             {
                 // Get the button
                 var button = sender as Button;
@@ -811,7 +811,7 @@ namespace Lamedal_UIWinForms.UControl.Input
             }
 
             // File Open Edit
-            if (Action_Custom== enInputControl_CustomAction.File_Open_Edit)
+            if (Action_Custom== enControl_InputCustomAction.File_Open_Edit)
             {
                 string path;
                 if (Field_Value.zDialogFile().File_OpenDialog(out path, _Path_FilterName, _Path_Filter))
@@ -828,7 +828,7 @@ namespace Lamedal_UIWinForms.UControl.Input
             hookEvent(sender, e);
         }
 
-        private void Event_OnEnterPressed_Handle(object sender, evInput_Control_EventArgs e)
+        private void Event_OnEnterPressed_Handle(object sender, onInputControl_EventArgs e)
         {
             if (Event_OnEnterPressed != null)
             {
@@ -836,7 +836,7 @@ namespace Lamedal_UIWinForms.UControl.Input
                 Event_OnEnterPressed(sender, e);
             }
         }
-        private void Event_OnValueChange_Handle(object sender, evInput_Control_EventArgs e)
+        private void Event_OnValueChange_Handle(object sender, onInputControl_EventArgs e)
         {
             // Rules
             var thisIsCheckbox = Input_Control_Tools.IsCheckbox(e.ControlType);
@@ -924,7 +924,7 @@ namespace Lamedal_UIWinForms.UControl.Input
             this.Action_Button = button;
             if (mask != "")
             {
-                this.ControlType = enInputControl_Type.Edit_Masked;
+                this.ControlType = enControl_InputType.Edit_Masked;
                 this.Edit_Mask = mask;
             }
 

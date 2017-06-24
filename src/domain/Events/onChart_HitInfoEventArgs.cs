@@ -2,12 +2,12 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace Lamedal_UIWinForms.Events
+namespace Lamedal_UIWinForms.domain.Events
 {
     /// <summary>
     /// Parameter state information. Used internally in event
     /// </summary>
-    public sealed class evChartHitInfo_EventArgs
+    public sealed class onChart_HitInfoEventArgs
     {
         private readonly Lamedal_WinForms _lamedWin = Lamedal_WinForms.Instance;  // Load the winforms lib
         
@@ -19,7 +19,7 @@ namespace Lamedal_UIWinForms.Events
         public readonly string Value_Label;
         public readonly double Value_;
 
-        public evChartHitInfo_EventArgs(Chart chart, MouseEventArgs e, bool explode = false)
+        public onChart_HitInfoEventArgs(Chart chart, MouseEventArgs e, bool explode = false)
         {
             // Example:
             //toolTip1.Show("X=" + chartinfo.Value_X + ", Y=" + chartinfo.Value_Y, chartinfo.Chart, chartinfo.MousePoint.X, chartinfo.MousePoint.Y - 15);

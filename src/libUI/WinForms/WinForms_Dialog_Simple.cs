@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using LamedalCore;
 using LamedalCore.domain.Attributes;
 using LamedalCore.domain.Enumerals;
-using Lamedal_UIWinForms.Enumerals;
+using Lamedal_UIWinForms.domain.Enumerals;
 using Lamedal_UIWinForms.UControl.Forms.Dialog;
 
 namespace Lamedal_UIWinForms.libUI.WinForms
@@ -93,12 +93,12 @@ namespace Lamedal_UIWinForms.libUI.WinForms
         /// <param name="filter">The filter.</param>
         /// <returns></returns>
         [STAThread]
-        public bool File_Dialog(string path, out string selectedFile, enFileDialogType dialogType = enFileDialogType.FileOpen,  
-                    enIOFileType filterType = enIOFileType.All, string title = "", string filter = "")
+        public bool File_Dialog(string path, out string selectedFile, enDialog_FileIO dialogType = enDialog_FileIO.FileOpen,  
+                    enDialog_FileIOType filterType = enDialog_FileIOType.All, string title = "", string filter = "")
         {
             selectedFile = path;
             FileDialog dialog = null;
-            if (dialogType == enFileDialogType.FileOpen)
+            if (dialogType == enDialog_FileIO.FileOpen)
             {
                 dialog = new OpenFileDialog();
                 if (title == "") title = "Open File";
@@ -128,9 +128,9 @@ namespace Lamedal_UIWinForms.libUI.WinForms
         /// <param name="filter">The filter.</param>
         /// <param name="filterType">Type of the filter.</param>
         /// <returns></returns>
-        public bool File_OpenDialog(string path, out string selectedFile, string title = "Open File", string filter = "", enIOFileType filterType = enIOFileType.All)
+        public bool File_OpenDialog(string path, out string selectedFile, string title = "Open File", string filter = "", enDialog_FileIOType filterType = enDialog_FileIOType.All)
         {
-            return File_Dialog(path, out selectedFile, enFileDialogType.FileOpen, filterType, title, filter);
+            return File_Dialog(path, out selectedFile, enDialog_FileIO.FileOpen, filterType, title, filter);
         }
 
         /// <summary>
@@ -140,8 +140,8 @@ namespace Lamedal_UIWinForms.libUI.WinForms
         /// <param name="filterType">Type of the filter.</param>
         /// <param name="dialogType">Type of the dialog.</param>
         /// <returns></returns>
-        public void File_Dialog_Button(Button button, enIOFileType filterType = enIOFileType.All, 
-                    enFileDialogType dialogType = enFileDialogType.FileOpen)
+        public void File_Dialog_Button(Button button, enDialog_FileIOType filterType = enDialog_FileIOType.All, 
+                    enDialog_FileIO dialogType = enDialog_FileIO.FileOpen)
         {
             button.Click -= File_Dialog_ButtonClick;
             button.Click += File_Dialog_ButtonClick;
@@ -157,8 +157,8 @@ namespace Lamedal_UIWinForms.libUI.WinForms
         /// <param name="dialogType">Type of the dialog.</param>
         /// <param name="updateButton">if set to <c>true</c> [update button].</param>
         /// <returns></returns>
-        public bool File_Dialog_Button_Click(Button button, out string selectedFile, enIOFileType filterType = enIOFileType.All,
-            enFileDialogType dialogType = enFileDialogType.FileOpen, bool updateButton = true)
+        public bool File_Dialog_Button_Click(Button button, out string selectedFile, enDialog_FileIOType filterType = enDialog_FileIOType.All,
+            enDialog_FileIO dialogType = enDialog_FileIO.FileOpen, bool updateButton = true)
         {
             if (File_Dialog(button.Text, out selectedFile, dialogType, filterType))
             {
@@ -191,9 +191,9 @@ namespace Lamedal_UIWinForms.libUI.WinForms
         /// <param name="filter">The filter.</param>
         /// <returns></returns>
         public bool File_SaveDialog(string path, out string selectedFile,
-                    enIOFileType filterType = enIOFileType.All, string title = "Save File", string filter = "")
+                    enDialog_FileIOType filterType = enDialog_FileIOType.All, string title = "Save File", string filter = "")
         {
-            return File_Dialog(path, out selectedFile, enFileDialogType.FileSave, filterType, title, filter);
+            return File_Dialog(path, out selectedFile, enDialog_FileIO.FileSave, filterType, title, filter);
         }
 
         /// <summary>
@@ -204,17 +204,17 @@ namespace Lamedal_UIWinForms.libUI.WinForms
         /// <param name="path">The path.</param>
         /// <param name="filterType">Type of the filter.</param>
         /// <param name="filter">The filter.</param>
-        private void File_Dialog_Setup(FileDialog dialog, string title, string path, enIOFileType filterType = enIOFileType.All, string filter = "")
+        private void File_Dialog_Setup(FileDialog dialog, string title, string path, enDialog_FileIOType filterType = enDialog_FileIOType.All, string filter = "")
         {
             // Setup custom file filter types
-            if ((filterType & enIOFileType.All) == enIOFileType.All) FileFilter_Setup(ref filter, "All Files","*.*");
-            if ((filterType & enIOFileType.UDL) == enIOFileType.UDL) FileFilter_Setup(ref filter, "UDL Files", "*.udl");
-            if ((filterType & enIOFileType.Text) == enIOFileType.Text) FileFilter_Setup(ref filter, "Text Files","*.txt");
-            if ((filterType & enIOFileType.Office) == enIOFileType.Office) FileFilter_Setup(ref filter, "Office Files","*.doc;*.xls;*.ppt");
-            if ((filterType & enIOFileType.Image) == enIOFileType.Image) FileFilter_Setup(ref filter, "Image Files"," *.jpg; *.jpeg; *.jpe; *.jfif; *.png; *.gif");
-            if ((filterType & enIOFileType.Video) == enIOFileType.Video) FileFilter_Setup(ref filter, "Video Files","*.wmv; *.asf;  *.avi; *.divx; *.flv; *.m4v; *.mkv; *.mov; *.mp4; *.mp4v; *.mpa; *.mpe; *.mpeg;*.mpeg4; *.mpg");
-            if ((filterType & enIOFileType.Video2) == enIOFileType.Video2) FileFilter_Setup(ref filter, "Video Files2","*.3g2; *.3gp; *.3gp2; *.3gpp; *.amv; *.dv; *.gxf;*.mp2;*.mpeg1; *.mpeg2;*.mpv2;*.vob");
-            if ((filterType & enIOFileType.Audio) == enIOFileType.Audio) FileFilter_Setup(ref filter, "Audio Files","*.mp3; *.wma");
+            if ((filterType & enDialog_FileIOType.All) == enDialog_FileIOType.All) FileFilter_Setup(ref filter, "All Files","*.*");
+            if ((filterType & enDialog_FileIOType.UDL) == enDialog_FileIOType.UDL) FileFilter_Setup(ref filter, "UDL Files", "*.udl");
+            if ((filterType & enDialog_FileIOType.Text) == enDialog_FileIOType.Text) FileFilter_Setup(ref filter, "Text Files","*.txt");
+            if ((filterType & enDialog_FileIOType.Office) == enDialog_FileIOType.Office) FileFilter_Setup(ref filter, "Office Files","*.doc;*.xls;*.ppt");
+            if ((filterType & enDialog_FileIOType.Image) == enDialog_FileIOType.Image) FileFilter_Setup(ref filter, "Image Files"," *.jpg; *.jpeg; *.jpe; *.jfif; *.png; *.gif");
+            if ((filterType & enDialog_FileIOType.Video) == enDialog_FileIOType.Video) FileFilter_Setup(ref filter, "Video Files","*.wmv; *.asf;  *.avi; *.divx; *.flv; *.m4v; *.mkv; *.mov; *.mp4; *.mp4v; *.mpa; *.mpe; *.mpeg;*.mpeg4; *.mpg");
+            if ((filterType & enDialog_FileIOType.Video2) == enDialog_FileIOType.Video2) FileFilter_Setup(ref filter, "Video Files2","*.3g2; *.3gp; *.3gp2; *.3gpp; *.amv; *.dv; *.gxf;*.mp2;*.mpeg1; *.mpeg2;*.mpv2;*.vob");
+            if ((filterType & enDialog_FileIOType.Audio) == enDialog_FileIOType.Audio) FileFilter_Setup(ref filter, "Audio Files","*.mp3; *.wma");
 
             dialog.Title = title;
             dialog.InitialDirectory = path;

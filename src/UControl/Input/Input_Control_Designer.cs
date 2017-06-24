@@ -2,7 +2,7 @@
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
-using Lamedal_UIWinForms.Enumerals;
+using Lamedal_UIWinForms.domain.Enumerals;
 
 namespace Lamedal_UIWinForms.UControl.Input
 {
@@ -117,7 +117,7 @@ namespace Lamedal_UIWinForms.UControl.Input
                 FireChanged();
             }
         }
-        public enInputControl_CustomAction Action_Custom
+        public enControl_InputCustomAction Action_Custom
         {
             get
             {
@@ -156,7 +156,7 @@ namespace Lamedal_UIWinForms.UControl.Input
                 FireChanged();
             }
         }
-        public enInputControl_Type Type
+        public enControl_InputType Type
         {
             get
             {

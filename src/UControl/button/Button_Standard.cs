@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Lamedal_UIWinForms.Enumerals;
-using Lamedal_UIWinForms.Events;
+using Lamedal_UIWinForms.domain.Enumerals;
+using Lamedal_UIWinForms.domain.Events;
 
 namespace Lamedal_UIWinForms.UControl.button
 {
@@ -97,8 +97,8 @@ namespace Lamedal_UIWinForms.UControl.button
         [Description("Set Ok Visible property")]
         public bool Visible_Ok
         {
-            get { return Ctrls.Visible_Get(enStandardButtons.Ok); }
-            set { Ctrls.Visible_Set(enStandardButtons.Ok, value); }
+            get { return Ctrls.Visible_Get(enControl_StandardButtons.Ok); }
+            set { Ctrls.Visible_Set(enControl_StandardButtons.Ok, value); }
         }
 
         /// <summary>
@@ -108,8 +108,8 @@ namespace Lamedal_UIWinForms.UControl.button
         [Description("Set Cancel Visible property")]
         public bool Visible_Cancel
         {
-            get { return Ctrls.Visible_Get(enStandardButtons.Cancel); }
-            set { Ctrls.Visible_Set(enStandardButtons.Cancel, value); }
+            get { return Ctrls.Visible_Get(enControl_StandardButtons.Cancel); }
+            set { Ctrls.Visible_Set(enControl_StandardButtons.Cancel, value); }
         }
 
         /// <summary>
@@ -119,8 +119,8 @@ namespace Lamedal_UIWinForms.UControl.button
         [Description("Set Apply Visible property")]
         public bool Visible_Apply
         {
-            get { return Ctrls.Visible_Get(enStandardButtons.Apply); }
-            set { Ctrls.Visible_Set(enStandardButtons.Apply, value); }
+            get { return Ctrls.Visible_Get(enControl_StandardButtons.Apply); }
+            set { Ctrls.Visible_Set(enControl_StandardButtons.Apply, value); }
         }
 
 
@@ -131,16 +131,16 @@ namespace Lamedal_UIWinForms.UControl.button
         [Description("Set Help Visible property")]
         public bool Visible_Help
         {
-            get { return Ctrls.Visible_Get(enStandardButtons.Help); }
-            set { Ctrls.Visible_Set(enStandardButtons.Help, value); }
+            get { return Ctrls.Visible_Get(enControl_StandardButtons.Help); }
+            set { Ctrls.Visible_Set(enControl_StandardButtons.Help, value); }
         }
 
         [Category("Appearance")]
         [Description("Set Copy2Clipboard Visible property")]
         public bool Visible_Clipboard
         {
-            get { return Ctrls.Visible_Get(enStandardButtons.Copy2Clipboard); }
-            set { Ctrls.Visible_Set(enStandardButtons.Copy2Clipboard, value); }
+            get { return Ctrls.Visible_Get(enControl_StandardButtons.Copy2Clipboard); }
+            set { Ctrls.Visible_Set(enControl_StandardButtons.Copy2Clipboard, value); }
         }
         #endregion
 
@@ -170,7 +170,7 @@ namespace Lamedal_UIWinForms.UControl.button
         [Description("Gets or sets the ok text value.")]
         public string Text_Ok
         {
-            get { return Ctrls.Text_Get(enStandardButtons.Ok); }
+            get { return Ctrls.Text_Get(enControl_StandardButtons.Ok); }
             set { Ctrls.Text_Set(ok: value); }
         }
 
@@ -181,7 +181,7 @@ namespace Lamedal_UIWinForms.UControl.button
         [Description("Set Apply Text property")]
         public string Text_Apply
         {
-            get { return Ctrls.Text_Get(enStandardButtons.Apply); }
+            get { return Ctrls.Text_Get(enControl_StandardButtons.Apply); }
             set { Ctrls.Text_Set(apply: value); }
         }
         /// <summary>
@@ -191,7 +191,7 @@ namespace Lamedal_UIWinForms.UControl.button
         [Description("Set Copy2Clipboard Text property")]
         public string Text_Cancel
         {
-            get { return Ctrls.Text_Get(enStandardButtons.Cancel); }
+            get { return Ctrls.Text_Get(enControl_StandardButtons.Cancel); }
             set { Ctrls.Text_Set(cancel: value); }
         }
 
@@ -202,7 +202,7 @@ namespace Lamedal_UIWinForms.UControl.button
         [Description("Set Copy2Clipboard Text property")]
         public string Text_Clipboard
         {
-            get { return Ctrls.Text_Get(enStandardButtons.Copy2Clipboard); }
+            get { return Ctrls.Text_Get(enControl_StandardButtons.Copy2Clipboard); }
             set { Ctrls.Text_Set(clipboard: value); }
         }
 
@@ -213,7 +213,7 @@ namespace Lamedal_UIWinForms.UControl.button
         [Description("Set Help Text property")]
         public string Text_Help
         {
-            get { return Ctrls.Text_Get(enStandardButtons.Help); }
+            get { return Ctrls.Text_Get(enControl_StandardButtons.Help); }
             set { Ctrls.Text_Set(help: value); }
         }
 
@@ -225,32 +225,32 @@ namespace Lamedal_UIWinForms.UControl.button
         #region Events
         [Category("Blueprint")]
         [Description("Fire when key is pressed")]
-        public event EventHandler<evStandardButtons_EventArgs> Event_OnClick;
+        public event EventHandler<onStandardButtons_EventArgs> Event_OnClick;
 
         private void OkClick(object sender, EventArgs e)
         {
             if (Event_OnClick != null) 
-                Event_OnClick(sender, new evStandardButtons_EventArgs(enStandardButtons.Ok));
+                Event_OnClick(sender, new onStandardButtons_EventArgs(enControl_StandardButtons.Ok));
         }
         private void ApplyClick(object sender, EventArgs e)
         {
             if (Event_OnClick != null) 
-                Event_OnClick(sender, new evStandardButtons_EventArgs(enStandardButtons.Apply));
+                Event_OnClick(sender, new onStandardButtons_EventArgs(enControl_StandardButtons.Apply));
         }
         private void HelpClick(object sender, EventArgs e)
         {
             if (Event_OnClick != null) 
-                Event_OnClick(sender, new evStandardButtons_EventArgs(enStandardButtons.Help));
+                Event_OnClick(sender, new onStandardButtons_EventArgs(enControl_StandardButtons.Help));
         }
         private void CancelClick(object sender, EventArgs e)
         {
             if (Event_OnClick != null) 
-                Event_OnClick(sender, new evStandardButtons_EventArgs(enStandardButtons.Cancel));
+                Event_OnClick(sender, new onStandardButtons_EventArgs(enControl_StandardButtons.Cancel));
         }
         private void ClipboardClick(object sender, EventArgs e)
         {
             if (Event_OnClick != null)
-                Event_OnClick(sender, new evStandardButtons_EventArgs(enStandardButtons.Copy2Clipboard));
+                Event_OnClick(sender, new onStandardButtons_EventArgs(enControl_StandardButtons.Copy2Clipboard));
         }
         #endregion
 
