@@ -119,7 +119,7 @@ namespace Lamedal_UIWinForms.UControl.Input
             catch (Exception ex)
             {
                 // Get the calling method and provide more context to the error
-                var msg = Lamedal_WinForms.Instance.Exceptions.Method_Stacktrace_AsStr(false, "Value_Set");
+                var msg = Lamedal_WinForms.Instance.lib.dotNet.Stacktrace.Method_Stacktrace_AsStr(false, "Value_Set");
                 throw new Exception(msg, ex); 
             }
         }

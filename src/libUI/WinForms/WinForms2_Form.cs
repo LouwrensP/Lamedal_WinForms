@@ -60,12 +60,13 @@ namespace Lamedal_UIWinForms.libUI.WinForms
                 {
                     if (appName != "") frm.Text = appName;
                     Application.Run(frm);
-                } catch (Exception ex)
+                } catch (Exception)
                 {
                     if ("Error in main form. Exit application?".zDialog().MessageBox_YesNo() == false)
                     {
                         Mainform_Open(frmType, newIcon, appName, runThisFormAsTheMainForm);
                     }
+                    else throw;
                 }
             }
         }
@@ -238,7 +239,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms
                 (formCaption + " not running.").zOk();
                 if (loadAppName.zIsNullOrEmpty() == false)
                 {
-                    string path = Lamedal_WinForms.Instance.lib.system.Registry.Application_PathGet(loadAppName);
+                    string path = Lamedal_WinForms.Instance.lib.Registry.Application_PathGet(loadAppName);
                     if (path != null)
                     {
                         _lamedWin.libUI.WinForms.Console.Execute(path);

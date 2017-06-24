@@ -7,7 +7,7 @@ namespace Lamedal_UIWinForms.lib.dotNet
     public sealed class dotNet_
     {
 
-        #region Assembly_Get
+        #region Assembly
         /// <summary>
         /// Gets the Assembly_Get library methods.
         /// </summary>
@@ -16,6 +16,17 @@ namespace Lamedal_UIWinForms.lib.dotNet
             get { return _Assembly ?? (_Assembly = new dotNet_Assembly()); }
         }
         private dotNet_Assembly _Assembly;
+        #endregion
+
+        #region Exceptions
+        /// <summary>
+        /// Helps with stack trace of methods. 
+        /// </summary>
+        public dotNet_Stacktrace Stacktrace
+        {
+            get { return _Stacktrace ?? (_Stacktrace = new dotNet_Stacktrace()); }
+        }
+        private dotNet_Stacktrace _Stacktrace;
         #endregion
 
         #region Resources
@@ -28,9 +39,5 @@ namespace Lamedal_UIWinForms.lib.dotNet
         }
         private dotNet_Resources _Resources;
         #endregion
-
-
-        
-
     }
 }

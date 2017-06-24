@@ -31,7 +31,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Callback
 
             if (CallbackMethods.Count > 300)
             {
-                string stack = _lamedWin.Exceptions.Method_Stacktrace_AsStr(false, "Method");
+                string stack = _lamedWin.lib.dotNet.Stacktrace.Method_Stacktrace_AsStr(false, "Method");
                 throw new ArgumentException("Error! Recursive method calls: " + stack);
             }
 
@@ -54,7 +54,7 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Callback
                 lock (CallbackMethods)
                 {
                     // Add the new method
-                    string stack = _lamedWin.Exceptions.Method_Stacktrace_AsStr(false, "Method");
+                    string stack = _lamedWin.lib.dotNet.Stacktrace.Method_Stacktrace_AsStr(false, "Method");
 
                     
                     timer = new Timer();

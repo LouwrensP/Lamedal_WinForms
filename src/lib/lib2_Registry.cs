@@ -3,9 +3,9 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
-namespace Lamedal_UIWinForms.lib.system
+namespace Lamedal_UIWinForms.lib
 {
-    public sealed class system_Registry
+    public sealed class lib2_Registry
     {
         // The path to the key where Windows looks for startup applications
         public static RegistryKey regKeyAppAutoRun = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);

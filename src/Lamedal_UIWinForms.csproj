@@ -70,7 +70,7 @@
     <Compile Include="domain\Events\onForm_Enum2Control_Changed.cs" />
     <Compile Include="domain\Events\onInputControl_EventArgs.cs" />
     <Compile Include="domain\Events\onStandardButtons_EventArgs.cs" />
-    <Compile Include="Lamedal_WinForms_Exceptions.cs" />
+    <Compile Include="lib\dotNet\dotNet_Stacktrace.cs" />
     <Compile Include="libUI\Interfaces\IForms_Setup.cs" />
     <Compile Include="libUI\Interfaces\IForms_SetupSubForm.cs" />
     <Compile Include="libUI\libUI2_.cs" />
@@ -125,11 +125,9 @@
     <Compile Include="lib\dotNet\dotNet_.cs" />
     <Compile Include="lib\dotNet\dotNet_Assembly.cs" />
     <Compile Include="lib\dotNet\dotNet_Resources.cs" />
-    <Compile Include="lib\dotNet\dotNet_Stream_Object2Str.cs" />
     <Compile Include="lib\dotNet\stateAssemblyFilters.cs" />
     <Compile Include="lib\lib2_.cs" />
-    <Compile Include="lib\system\system_.cs" />
-    <Compile Include="lib\system\system_Registry.cs" />
+    <Compile Include="lib\lib2_Registry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="State\stateCache_DataTableFileSetup.cs" />
     <Compile Include="State\stateCache_DataTableFileSetup_Controller.cs" />

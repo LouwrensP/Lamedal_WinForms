@@ -1,4 +1,9 @@
-﻿using LamedalCore.lib;
+﻿using System;
+using LamedalCore;
+using LamedalCore.domain.Attributes;
+using LamedalCore.domain.Enumerals;
+using LamedalCore.lib;
+using LamedalCore.Types;
 using Lamedal_UIWinForms.lib;
 using Lamedal_UIWinForms.libUI;
 using Lamedal_UIWinForms.libUI.WinForms.UIDesigner;
@@ -47,16 +52,6 @@ namespace Lamedal_UIWinForms
         private libUI2_ _libUI;
         #endregion
 
-        #region Exceptions
-        /// <summary>
-        /// Gets the Exceptions library methods. 
-        /// </summary>
-        public Lamedal_WinForms_Exceptions Exceptions
-        {
-            get { return _Exceptions ?? (_Exceptions = new Lamedal_WinForms_Exceptions()); }
-        }
-        private Lamedal_WinForms_Exceptions _Exceptions;
-        #endregion
 
 
         #region UIDesigner
@@ -69,5 +64,78 @@ namespace Lamedal_UIWinForms
         }
         private UIDesigner_ _UIDesigner;
         #endregion
+
+
+        #region About messages
+        /// <summary>Shows an about message of the LamedaL library.</summary>
+        /// <returns></returns>
+        public string About_()
+        {
+            return LamedalCore_.Instance.lib.Console.IO.About_();
+        }
+
+        /// <summary>Writes to the console an about message of the LamedaL library.</summary>
+        public void About_WriteLine()
+        {
+            LamedalCore_.Instance.lib.Console.IO.About_WriteLine();
+        }
+
+        /// <summary>
+        /// Writes a hello world message to the console
+        /// </summary>
+        /// <returns></returns>
+        public string HelloWorld_()
+        {
+            return LamedalCore_.Instance.lib.Console.IO.About_HelloWorld_();
+        }
+
+        /// <summary>
+        /// Writes a hello world message to the console
+        /// </summary>
+        /// <returns></returns>
+        public void HelloWorld_WriteLine()
+        {
+            LamedalCore_.Instance.lib.Console.IO.About_HelloWorld_WriteLine();
+        }
+
+        /// <summary>
+        /// Shows a error message. This is for testing purposes.
+        /// </summary>
+        [Test_IgnoreCoverage(enCode_TestIgnore.CodeIsUsedForTesting)]
+        public void Error_Test()
+        {
+            throw new NotImplementedException("Hello. This is a test error message.");
+        }
+
+        /// <summary>Exits the application.</summary>
+        /// <param name="exitCode">The exit code.</param>
+        [Test_IgnoreCoverage(enCode_TestIgnore.CodeIsUsedForTesting)]
+        public void Exit(int exitCode = 0)
+        {
+            Environment.Exit(exitCode);
+        }
+
+        /// <summary>Exits the application and write message on the event log.</summary>
+        /// <param name="eventlogMsg">The eventlog MSG.</param>
+        [Test_IgnoreCoverage(enCode_TestIgnore.CodeIsUsedForTesting)]
+        public void Exit_Fast(string eventlogMsg = "")
+        {
+            Environment.FailFast(eventlogMsg);
+        }
+
+        #endregion
+
+        #region Types
+        /// <summary>
+        /// Gets the Types library methods.
+        /// </summary>
+        public Types_ Types
+        {
+            get { return _Types ?? (_Types = new Types_()); }
+        }
+        private Types_ _Types;
+        #endregion
+
+
     }
 }

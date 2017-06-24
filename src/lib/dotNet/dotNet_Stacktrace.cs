@@ -3,9 +3,9 @@ using System.Reflection;
 using LamedalCore;
 using LamedalCore.zz;
 
-namespace Lamedal_UIWinForms
+namespace Lamedal_UIWinForms.lib.dotNet
 {
-    public sealed class Lamedal_WinForms_Exceptions : LamedalCore_Exceptions
+    public sealed class dotNet_Stacktrace : LamedalCore_Exceptions
     {
 
         #region Method_Stacktrace_AsStr (not available on .Net Core standard 1.6)
