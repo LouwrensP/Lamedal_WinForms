@@ -311,7 +311,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UControl\_Designer\TextBox_Designer.cs" />
-    <Compile Include="zzz\ClipBoard_UI_Windows_z.cs" />
+    <Compile Include="zzz\UI_Windows_System.cs" />
     <Compile Include="zzz\ListBox_Shortcut.cs" />
     <Compile Include="zzz\Types_IEnumerable_T_Shortcut.cs" />
     <Compile Include="zzz\UIWindows_Shortcut.cs" />

@@ -148,10 +148,8 @@ namespace Lamedal_UIWinForms.UControl.Input
                 case 1: return args.Value1;
                 case 2: return args.Value2;
                 case 3: return args.Value3;
+                default: throw new ArgumentException("Error! Undefined version!", nameof(version));
             }
-
-            "Error in Value_Get(?)".zException_Show();
-            return false;
         }
         /// <summary>
         /// Return the current Value.
@@ -238,8 +236,7 @@ namespace Lamedal_UIWinForms.UControl.Input
                     break;
                 default:
                     var msg = "Control Type '" + _ControlType + "'not defined yet in Input_Control_Class.Value_Get()!";
-                    msg.zException_Show();
-                    break;
+                    throw new ArgumentException(msg, nameof(_ControlType));
             }
             args = new onInputControl_EventArgs(_ControlType, value, text, value1, value2, value3);
             return value;

@@ -682,8 +682,7 @@ namespace Lamedal_UIWinForms.UControl.Input
                         if (Field_Caption == "FieldName") Field_Caption = "Path:";
                         Action_AutoSave = true;
                         break;
-                        
-                    default: (" Type '" + value + "' not defined!").zException_Show(); break;
+                    default: throw new ArgumentException(" Type '" + value + "' not defined!", nameof(value));
                 }
             }
         }

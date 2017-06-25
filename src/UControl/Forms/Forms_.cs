@@ -16,11 +16,7 @@ namespace Lamedal_UIWinForms.UControl.Forms
         /// <param name="tabPage">The tab tabPage.</param>
         public static void SubForm_Setup(IForms_SetupSubForm frmI, TabPage tabPage)
         {
-            if (frmI == null)
-            {
-                "Error! The sub-form needs to inherit from SubForm_Interface".zException_Show();
-                return;
-            }
+            if (frmI == null) throw  new ArgumentException("Error! The sub-form needs to inherit from SubForm_Interface",nameof(frmI));
             if (tabPage == null) frmI.Show();
             else
             {
@@ -33,17 +29,14 @@ namespace Lamedal_UIWinForms.UControl.Forms
 
         public void SubForm_Get<T>(Form thisForm, ref T subForm, TabControl tab = null, int tabNo = -1)
         {
-
             if (subForm == null)
             {
                 var frm = Form_Create(typeof(T), thisForm);
                 var frmI = frm as IForms_SetupSubForm;
                 if (frmI == null)
                 {
-                    if (frm != null) "Error! The sub-form needs to inherit from SubForm_Interface".zException_Show();
-
-                    "Error! Cannot create sub-form".zException_Show();
-                    subForm = (T)frmI;
+                    if (frm != null) throw new ArgumentException("Error! The sub-form needs to inherit from SubForm_Interface", nameof(frm));
+                    throw new InvalidOperationException("Error! Cannot create sub-form");
                 }
                 tab.SelectedIndex = tabNo;
                 TabPage page = tab.SelectedTab;

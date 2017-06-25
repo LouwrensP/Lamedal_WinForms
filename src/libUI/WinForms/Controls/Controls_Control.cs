@@ -237,7 +237,12 @@ namespace Lamedal_UIWinForms.libUI.WinForms.Controls
 
             if (_lamedWin.libUI.WinForms.Controls.Control.IsHostedInDesigner(sender) == false) return;
 
-            if (moveToContainer.Controls.Count != 0 && errorIfOtherControls) ("Error! There are other controls on groupBox '" + moveToContainer.ToString() + "'!").zException_Show();
+            if (moveToContainer.Controls.Count != 0 && errorIfOtherControls)
+            {
+                var ex = new InvalidOperationException("Error! There are other controls on groupBox '" + moveToContainer.ToString() + "'!");
+                ex.zLogLibraryMsg();
+                throw ex;
+            }
             moveToContainer.Controls.Add(sender);
 
             sender.BringToFront();

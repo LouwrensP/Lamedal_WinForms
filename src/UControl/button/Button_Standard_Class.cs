@@ -71,10 +71,8 @@ namespace Lamedal_UIWinForms.UControl.button
                 case enControl_StandardButtons.Apply: return btnApply.Text;
                 case enControl_StandardButtons.Help: return btnHelp.Text;
                 case enControl_StandardButtons.Copy2Clipboard: return btnClipboard.Text;
-                default: "Undefined enumerable!".zException_Show(); break;
-
+                default: throw new ArgumentException("Undefined enumerable!", nameof(button)); 
             }
-            return "";
         }
 
         public void Text_Set(string ok = "&Ok", string cancel = "&Cancel", string apply = "&Apply",
@@ -101,10 +99,9 @@ namespace Lamedal_UIWinForms.UControl.button
                 case enControl_StandardButtons.Apply: return btnApply.Visible;
                 case enControl_StandardButtons.Help: return btnHelp.Visible;
                 case enControl_StandardButtons.Copy2Clipboard: return btnClipboard.Visible;
-                default: "Undefined enumerable!".zException_Show(); break;
+                default: throw new ArgumentException("Undefined enumerable!", nameof(button));
 
-            }
-            return false;
+            }            
         }
 
         /// <summary>
@@ -121,6 +118,7 @@ namespace Lamedal_UIWinForms.UControl.button
                 case enControl_StandardButtons.Apply: btnApply.Visible = value; break;
                 case enControl_StandardButtons.Help: btnHelp.Visible = value; break;
                 case enControl_StandardButtons.Copy2Clipboard: btnClipboard.Visible = value; break;
+                default: throw new ArgumentException("Undefined enumerable!", nameof(button));
             }
         }
 

@@ -66,8 +66,9 @@ namespace Lamedal_UIWinForms.libUI.WinForms
         {
             if (Object == null)
             {
-                "Error! The object can not be null!".zException_Show();
-                return;
+                var ex = new ArgumentException("Error! The object can not be null!", nameof(Object));
+                ex.zLogLibraryMsg();
+                throw ex;
             }
 
             var type = Object.GetType();

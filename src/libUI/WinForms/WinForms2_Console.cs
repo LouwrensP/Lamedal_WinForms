@@ -26,8 +26,9 @@ namespace Lamedal_UIWinForms.libUI.WinForms
             //var outputStr = new StringBuilder();
             if (exeName == null)
             {
-                "Error! exeName can not be null!".zException_Show();
-                return;
+                var ex = new ArgumentException("Error! exeName can not be null!", nameof(exeName));
+                ex.zLogLibraryMsg();
+                throw ex;
             }
 
             var processInfo = new ProcessStartInfo();
